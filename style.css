@@ -1,0 +1,911 @@
+/*
+Theme Name: Atlantic
+Theme URI: https://elevate360.com.au/atlantic-wordpress-theme/
+Author: Elevate
+Author URI: https://elevate360.com.au/
+Description: Atlantic is for the creatives out there looking to give their creations the platform they deserve. Photographers, bloggers, videographers and artists alike will find Atlantic can not only mimic the style of their content but contribute to the design aesthetic you have in mind.
+Atlantic is a free high res photography blog theme for WordPress which understands the importance of presentation, offering a pixel perfect platform for your content. Atlantic serves as a digital frame for your photos. This theme compliments images that are large in scope, detailed in their display and ambitious in their composition. Each image is given its opportunity to shine unambiguously with Atlantic.
+This customizable theme can be changed to suit the individual style of each collection. Atlantic gives control to the user with domain over image and video sizes; selectable colours and fonts; as well as further customization opportunities with CSS.
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: atlantic
+Tags: one-column, custom-header, custom-menu, editor-style, featured-images, post-formats, rtl-language-support, sticky-post, translation-ready, threaded-comments, theme-options
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Atlantic is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Typography
+# Elements
+# Forms
+# Accessibility
+# Alignments
+# Clearings
+# Structure
+	## Header
+	## Navigation
+	## Posts and pages
+	## Comments
+	## Pagination
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	color: #404040;
+	font-family: 'Source Code Pro', 'Courier New', Helvetica, Arial, sans-serif;
+	font-size: 1.5rem;
+	line-height: 1.4;
+}
+
+a,
+a:visited {
+	color: #404040;
+	text-decoration: underline;
+}
+a:hover,
+a:focus,
+a:active {
+	text-decoration: none;
+	outline: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: bold;
+	margin: 0 0 1.5rem;
+}
+h1 {
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2.7rem;
+}
+h3 {
+	font-size: 2.4rem;
+}
+h4 {
+	font-size: 2rem;
+}
+h5 {
+	font-size: 1.6rem;
+}
+h6 {
+	font-size: 1.5rem;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a,
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+	text-decoration: none;
+	color: #404040;
+}
+
+p {
+	margin: 0 0 1.5rem;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5rem;
+}
+
+address {
+	margin: 0 0 1.5rem;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+	font-size: 15px;
+	font-size: 0.9375rem;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+small {
+	font-size: 75%;
+}
+
+big {
+	font-size: 125%;
+}
+
+figure {
+	margin: 0;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html {
+	box-sizing: border-box;
+}
+
+body {
+	background: #fff; /* Fallback for when there is no custom background color defined. */
+}
+
+blockquote p:before,
+q p:before {
+	content: open-quote;
+}
+blockquote p:after,
+q p:after {
+	content: close-quote;
+}
+
+blockquote p,
+q p {
+	quotes: "“" "”" "‘" "’";
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin: 1.5rem 0;
+}
+
+ul,
+ol {
+	margin: 0 0 1.5rem 0;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-top: 0.5rem;
+}
+ul li,
+ol li {
+	margin: 0 0 0.5rem 0;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+img {
+	display: block;
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb;
+	border-radius: 3px;
+	background: #e6e6e6;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
+	color: rgba(0, 0, 0, .8);
+	font-size: 1.2rem;
+	line-height: 1;
+	padding: .6em 1em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	outline: 0;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border-color: #ccc #bbb #aaa;
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+}
+
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active {
+	border-color: #aaa #bbb #bbb;
+	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: #666;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	max-width: 100%;
+	width: 100%;
+	padding: 6px 10px;
+	margin: 0 0 5px;
+}
+
+select {
+	border: 1px solid #ccc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #111;
+}
+
+.required {
+	color: red;
+}
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin: 0 1.5rem 1.5rem 0;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin: 0 0 1.5rem 1.5rem;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto 1.5rem;
+}
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+# Structure
+--------------------------------------------------------------*/
+.inner {
+	width: 100%;
+	max-width: 1280px;
+	position: relative;
+	margin:  0 auto;
+}
+.inner .inner {
+	max-width: 640px;
+}
+
+@media screen and (max-width: 1300px) {
+	.inner {
+		padding: 0 10px;
+	}
+	.inner .inner {
+		padding: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+## Header
+--------------------------------------------------------------*/
+.site-header {
+	margin: 0 auto 1.5em;
+}
+.site-branding {
+	text-align: center;
+}
+.site-title {
+	margin: 2rem 0 1.5rem;
+	font-size: 5rem;
+	font-weight: bold;
+}
+.site-title a {
+	text-decoration: none;
+}
+.site-branding .custom-logo-link {
+	display: block;
+	margin: 1.5rem auto;
+}
+.site-branding .custom-logo-link img {
+	margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+## Navigation
+--------------------------------------------------------------*/
+.main-navigation {
+	clear: both;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.main-navigation ul {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.main-navigation li {
+	position: relative;
+}
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+}
+.main-navigation li:hover > a,
+.main-navigation li.focus > a {
+	text-decoration: underline;
+}
+.main-navigation ul ul :hover > a,
+.main-navigation ul ul .focus > a {
+	text-decoration: underline;
+}
+.main-navigation ul ul a:hover,
+.main-navigation ul ul a.focus {
+	text-decoration: underline;
+}
+.main-navigation .current_page_item > a,
+.main-navigation .current-menu-item > a,
+.main-navigation .current_page_ancestor > a,
+.main-navigation .current-menu-ancestor > a {
+	text-decoration: underline;
+}
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: inline-block;
+}
+
+@media screen and (min-width: 550px) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: inline-block;
+	}
+	.main-navigation li {
+		float: left;
+		margin: 0 10px;
+	}
+	
+	.main-navigation ul ul {
+		box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+		position: absolute;
+		top: 100%;
+		left: -999em;
+		z-index: 99999;
+		text-align: left;
+		background: white;
+	}
+	.main-navigation ul ul ul {
+		top: 0;
+	}
+	.main-navigation ul li:hover > ul,
+	.main-navigation ul li.focus > ul {
+		left: 0;
+	}
+	.main-navigation ul ul li:hover > ul,
+	.main-navigation ul ul li.focus > ul {
+		left: 100%;
+	}
+
+	.main-navigation ul ul li {
+		float: none;
+		margin: 0;
+	}
+	.main-navigation ul ul a {
+		white-space: nowrap;
+		padding: 5px;
+	}
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 2.25em;
+}
+
+.hentry.format-status .entry-content {
+	font-size: 125%;
+	font-weight: bold;
+	text-align: center;
+}
+
+.hentry.format-quote .entry-content {
+	text-align: right;
+}
+.hentry.format-quote .entry-content blockquote {
+	text-align: left;
+	font-style: italic;
+}
+
+.hentry.format-video .entry-content iframe {
+	margin: 0 auto 1.5rem !important;
+	display: block;
+}
+
+.byline,
+.updated:not(.published) {
+	display: none;
+}
+
+.single .byline,
+.group-blog .byline {
+	display: inline;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1em auto 0;
+}
+
+.page-content img,
+.entry-content img,
+.entry-summary img {
+	margin-bottom: 1.5rem;
+	margin-top: 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+.entry-title,
+.page-title {
+	text-align: center;
+}
+
+.wp-post-image {
+	margin: 0 auto;
+}
+
+.entry-footer {
+	font-weight: 200;
+}
+.entry-footer .categories,
+.entry-footer .tags {
+	display: block;
+	text-align: center;
+}
+.entry-footer hr {
+	margin: 0.5em auto;
+}
+
+#content div.sharedaddy,
+#main div.sharedaddy,
+div.sharedaddy {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Blog Listings (layouts)
+--------------------------------------------------------------*/
+
+.blog-wrap{
+	overflow: hidden;
+}
+
+/*blog layout controls*/
+.blog-layout{
+	text-align: center;
+	margin-bottom: 5px;
+}
+.blog-layout .layout-toggle{
+	display: inline-block;
+    margin-right: 7px;
+    font-size: 1.75em;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 2px;
+    color: #c5c5c5;
+    vertical-align: baseline;
+    cursor: pointer;
+    -webkit-transition: all 300ms ease-in;
+    -moz-transition: all 300ms ease-in;
+    transition: all 300ms ease-in;
+}
+.blog-layout .layout-toggle.active{
+	color: #333;
+}
+.blog-layout .layout-toggle i{
+	
+}
+
+.blog-listing{
+	float: left;
+	width: 100%;
+}
+/*Grid listing (masonry)*/
+.blog-listing.grid{
+	width: calc(100% + 20px);
+}
+.blog-listing.grid .hentry{
+	width: 50%;
+	width: calc(50% - 20px);
+	max-width: none;
+	float: left;
+	border: solid 1px #f1f1f1;
+	background: #fdfdfd;
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+/*Standard 1 column listing)*/
+.blog-listing.column{
+	
+}
+
+.blog-listing .hentry{
+
+}
+
+
+
+/*--------------------------------------------------------------
+## Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+	display: none;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+#comments {
+	outline: 0;
+}
+
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+@media (min-width: 800px) {
+	.comment-form-author, .comment-form-email, .comment-form-url {
+    	width: 32%;
+		float: left;
+		margin-right: 2%;
+	}
+	.comment-form-url {
+    	margin-right: 0;
+	}
+}
+
+/*--------------------------------------------------------------
+## Pagination
+--------------------------------------------------------------*/
+.pagination {
+	text-align: center;
+}
+.pagination-inner {
+	display: inline-block;
+}
+.pagination a,
+.pagination span {
+	padding: 5px 10px;
+    display: block;
+    float: left;
+    margin: 0 3px;
+}
+.pagination a,
+.pagination a:visited {
+	background: #404040;
+	color: white;
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	position: relative;
+	margin: 1.5em auto 0;
+	padding: 1em 0;
+	background: #404040;
+	color: white;
+	font-size: 75%;
+}
+.site-footer a,
+.site-footer a:visited {
+	color: white;
+}
+.site-footer .site-info {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
