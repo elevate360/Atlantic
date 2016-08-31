@@ -1,0 +1,2 @@
+# Atlantic
+Atlantic WordPress theme. 
