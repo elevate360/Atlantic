@@ -110,4 +110,15 @@
 			}
 		} );
 	} );
+	
+	wp.customize('atlantic_font_base_size', function( value ){
+		value.bind( function ( value ){
+			int_val = parseFloat(value);
+			html_rems = (62.5 * int_val) + '%';
+			$('html').css('font-size', html_rems);
+		});
+		
+	});
+	
+	
 } )( jQuery );

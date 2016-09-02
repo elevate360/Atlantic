@@ -11,6 +11,56 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function atlantic_customize_register( $wp_customize ) {
+	
+	//create new controller for displaying select lists with optgroups (used for fonts)
+	class WP_Customize_Control_Select_Optgroup extends WP_Customize_Control{
+		
+		public function render_content(){
+			
+			$html = '';
+			
+			//get choices, an array of category names and applicable fonts
+			$choices = $this->choices;
+			
+			if($choices){
+				//display the label
+				if(!empty($this->label)){
+					$html .= '<span class="customize-control-title">' . esc_html($this->label) . '</span>';
+				}
+				//display the description
+				if(!empty($this->description)){
+					$html .= '<span class="description customize-control-description"> ' . esc_html($this->description) . '</span>';
+				}
+	
+				//display main list
+				$html .= '<select ' . $this->get_link() . ' id="' . $this->id . '" name="' . $this->id . '">';
+				foreach($choices as $choice){
+					$category_name = $choice['category-name'];
+					$category_fonts = $choice['fonts'];
+					
+					//display fonts segemented by category
+					$html .= '<optgroup label="' . $category_name .'">';
+					if($category_fonts){
+						foreach($category_fonts as $font){
+							//determine if this value should be preselected
+							if($this->value() == $font->family){
+								$html .= '<option selected id="' . $this->id . '" name="' . $this->id . '" value="' . $font->family . '">' . $font->family . '</option>';
+							}else{
+								$html .= '<option id="' . $this->id . '" name="' . $this->id . '" value="' . $font->family . '">' . $font->family . '</option>';
+							}
+						}
+					}
+					$html .= '</optgroup>';
+				}
+				$html .= '</select>';
+			}
+			
+			echo $html;
+		}
+	}
+	
+	
+	
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
@@ -160,7 +210,10 @@ function atlantic_customize_register( $wp_customize ) {
 	));
 
 
-	//GOOGLE FONT FUNCTIONS
+
+	//FONTS PANEL
+	
+	//collect google fonts by categies
 	$google_fonts = '';
 	if (get_transient('atlantic_google_fonts')){
         $google_fonts = get_transient('atlantic_google_fonts');
@@ -219,109 +272,142 @@ function atlantic_customize_register( $wp_customize ) {
 				$font_categories[$category_key]['fonts'] = $applicable_fonts;
 				
 			}
-		}
-
-		//create new controller for displaying select lists with optgroups
-		class WP_Customize_Control_Select_Optgroup extends WP_Customize_Control{
-			
-			public function render_content(){
-				
-				$html = '';
-				
-				//get choices, an array of category names and applicable fonts
-				$choices = $this->choices;
-				
-				if($choices){
-					//display the label
-					if(!empty($this->label)){
-						$html .= '<span class="customize-control-title">' . esc_html($this->label) . '</span>';
-					}
-					//display the description
-					if(!empty($this->description)){
-						$html .= '<span class="description customize-control-description"> ' . esc_html($this->description) . '</span>';
-					}
-		
-					//display main list
-					$html .= '<select ' . $this->get_link() . ' id="' . $this->id . '" name="' . $this->id . '">';
-					foreach($choices as $choice){
-						$category_name = $choice['category-name'];
-						$category_fonts = $choice['fonts'];
-						
-						//display fonts segemented by category
-						$html .= '<optgroup label="' . $category_name .'">';
-						if($category_fonts){
-							foreach($category_fonts as $font){
-								//determine if this value should be preselected
-								if($this->value() == $font->family){
-									$html .= '<option selected id="' . $this->id . '" name="' . $this->id . '" value="' . $font->family . '">' . $font->family . '</option>';
-								}else{
-									$html .= '<option id="' . $this->id . '" name="' . $this->id . '" value="' . $font->family . '">' . $font->family . '</option>';
-								}
-							}
-						}
-						$html .= '</optgroup>';
-					}
-					$html .= '</select>';
-				}
-				
-				echo $html;
-			}
-		}
-
-		//Main customizer output
-		$wp_customize->add_section( 'atlantic_font_options',
-			array(
-				'title'       => __( 'Fonts', 'atlantic' ),
-				'priority'    => 330,
-				'capability'  => 'edit_theme_options',
-				'description' => __('Use the settings below to adjust the fonts used on the website.', 'atlantic'), 
-			) 
-	 	);
-		$wp_customize->add_setting( 'atlantic_font',
-			array(
-				'default' => '',
-				'transport'  => 'postMessage',
-				'sanitize_callback' => 'sanitize_text_field'
-			)
-		);
-		$wp_customize->add_setting( 'atlantic_heading_font',
-			array(
-				'default' => '',
-				'transport'  => 'postMessage',
-				'sanitize_callback' => 'sanitize_text_field'
-			)
-		);
-		//body font
-		$wp_customize->add_control( new WP_Customize_Control_Select_Optgroup( 
-			$wp_customize, 
-			'atlantic_font_control',
-			array(
-				'label'    => __( 'Website Body Font', 'atlantic' ),
-				'description' => __('Main font used throughout the site', 'atlantic'),
-				'section'  => 'atlantic_font_options',
-				'settings' => 'atlantic_font',
-				'type' => 'select',
-				'choices' => $font_categories,
-				'priority' => 10,
-			) 
-		));
-		//heading fonts
-		$wp_customize->add_control( new WP_Customize_Control_Select_Optgroup( 
-			$wp_customize, 
-			'atlantic_heading_font_control',
-			array(
-				'label'    		=> __( 'Heading Font', 'atlantic' ), 
-				'description'	=> __('Font used for the H1 - H6 tags', 'atlantic'),
-				'section'  		=> 'atlantic_font_options',
-				'settings' 		=> 'atlantic_heading_font',
-				'type' 			=> 'select',
-				'choices' 		=> $font_categories,
-				'priority'		 => 20,
-			) 
-		));
-		
+		}	
 	}
+	
+	
+	//array of font choices mapping REM units to percentages
+	$font_rem_choices = array(
+		'0.8' 	=> '80%',
+		'0.9' 	=> '90%',
+		'1.0' 	=> '100%',
+		'1.1'	=> '110%',
+		'1.2'	=> '120%',
+		'1.3'	=> '130%',
+		'1.4'	=> '140%',
+		'1.5'	=> '150%',
+		'1.6'	=> '160%',
+		'1.7'	=> '170%',
+		'1.8'	=> '180%',
+		'1.9'	=> '190%',
+		'2.0'	=> '200%',
+	);
+	
+	
+	//Main container for font related sections
+	$wp_customize->add_panel( 'atlantic_font_options_panel', 
+		array(
+			'title'			=> __('Font Settings', 'atlantic'),
+			'description'	=> __('Chnage your font settings via the controls below', 'atlantic'),
+			'priority'		=> 1000,
+			'capability'    => 'edit_theme_options',
+		)
+	); 
+	//General font options section
+	$wp_customize->add_section( 'atlantic_font_general_options',
+		array(
+			'title'       	=> __( 'General Font Settings', 'atlantic' ),
+			'priority'    	=> 330,
+			'capability'  	=> 'edit_theme_options',
+			'description' 	=> __('Use the settings below to adjust the typography display of the site', 'atlantic'), 
+			'panel'			=> 'atlantic_font_options_panel'
+		) 
+ 	);
+	//body font setting and control
+	$wp_customize->add_setting( 'atlantic_font',
+		array(
+			'default' => '',
+			'transport'  => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control_Select_Optgroup( 
+		$wp_customize, 
+		'atlantic_font_control',
+		array(
+			'label'    => __( 'Website Body Font', 'atlantic' ),
+			'description' => __('Main font used throughout the site', 'atlantic'),
+			'section'  => 'atlantic_font_general_options',
+			'settings' => 'atlantic_font',
+			'type' => 'select',
+			'choices' => $font_categories,
+			'priority' => 10,
+		) 
+	));
+	//heading fonts setting and control
+	$wp_customize->add_setting( 'atlantic_heading_font',
+		array(
+			'default' => '',
+			'transport'  => 'postMessage',
+			'sanitize_callback' => 'sanitize_text_field'
+		)
+	);
+	$wp_customize->add_control( new WP_Customize_Control_Select_Optgroup( 
+		$wp_customize, 
+		'atlantic_heading_font_control',
+		array(
+			'label'    		=> __( 'Heading Font', 'atlantic' ), 
+			'description'	=> __('Font used for the H1 - H6 tags', 'atlantic'),
+			'section'  		=> 'atlantic_font_general_options',
+			'settings' 		=> 'atlantic_heading_font',
+			'type' 			=> 'select',
+			'choices' 		=> $font_categories,
+			'priority'		 => 20,
+		) 
+	));
 
+	//Add settings for base body sizing
+	$wp_customize->add_setting( 'atlantic_font_base_size', 
+		array(
+			'default' 			=> '1.0',
+			'type'	  			=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'transport'			=> 'postMessage',
+			'sanitize_callback'	=> 'sanitize_text_field'	
+	));
+	//add control to select base body size	
+	$wp_customize->add_control( 'atlantic_font_base_size',
+		array(
+			'label'				=> __('Base Font Size', 'atlantic'),
+			'description'		=> __('Sets the base font size percentage for the website (100% is approx 15px)', 'atlantic'),
+			'section'			=> 'atlantic_font_general_options',
+			'settings'			=> 'atlantic_font_base_size',
+			'type'				=> 'select',
+			'choices'			=> $font_rem_choices
+		)
+	);
+	
+	//H1 Section (inside Panel)	
+	//Add settings for H1 tags
+	$wp_customize->add_section( 'atlantic_h1_options',
+		array(
+			'title'				=> __('H1 Header Settings', 'atlantic'),
+			'priority'			=> 350,
+			'capability'		=> 'edit_theme_options',
+			'description'		=> 'Controls how H1 headers are displayed on your site',
+			'panel'				=> 'atlantic_font_options_panel'
+		)
+	);
+	//add H1 header size setting & control
+	$wp_customize->add_setting( 'atlantic_h1_font_size', 
+		array(
+			'default'			=> '3.0',
+			'type'				=> 'theme_mod',
+			'capability'		=> 'edit_theme_options',
+			'transport'			=> 'postMessage',
+			'sanitize_callback'	=> 'sanitize_text_field'
+		)
+	);
+	$wp_customize->add_control( 'atlantic_h1_font_size',
+		array(
+			'label'				=> __('H1 Font Size', 'atlantic'),
+			'description'		=> __('Font sizing for H1 elemenets'),
+			'section'			=> 'atlantic_h1_options',
+			'setting'			=> 'atlantic_h1_font_size',
+			'type'				=> 'select',
+			'choices'			=> $font_rem_choices
+		)
+	);
 	
 	
 }
