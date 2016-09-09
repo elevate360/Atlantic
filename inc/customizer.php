@@ -34,6 +34,12 @@ function atlantic_customize_register( $wp_customize ) {
 	
 				//display main list
 				$html .= '<select ' . $this->get_link() . ' id="' . $this->id . '" name="' . $this->id . '">';
+				
+				//create a default option 
+				$html .= '<optgroup label="Default Choice">';
+					$html .= '<option value="default"> No Font </option>';
+				$html .= '</optgroup>';
+				
 				foreach($choices as $choice){
 					$category_name = $choice['category-name'];
 					$category_fonts = $choice['fonts'];
@@ -213,8 +219,13 @@ function atlantic_customize_register( $wp_customize ) {
 
 	//FONTS PANEL
 	
+	$font_categories = array();
+	
+	
 	//collect google fonts by categies
 	$google_fonts = '';
+	
+	
 	if (get_transient('atlantic_google_fonts')){
         $google_fonts = get_transient('atlantic_google_fonts');
 		
@@ -233,17 +244,20 @@ function atlantic_customize_register( $wp_customize ) {
 	}
 	//transient doesn't exist, fetch it
     else{
+    	
         $google_api = 'https://www.googleapis.com/webfonts/v1/webfonts?sort=alpha&key=AIzaSyCxW8RZ-xZVyfbY-nriW_E7VimgydHa_uo';
         $font_content = wp_remote_get( $google_api, array('sslverify'   => false) );
-	
+		
+
 		if(!isset($font_content->error)){
 			//$google_fonts = json_decode($font_content['body']);
-			set_transient( 'atlantic_google_fonts', $google_fonts, WEEK_IN_SECONDS );
+			set_transient( 'atlantic_google_fonts', $font_content, WEEK_IN_SECONDS );
 		}
 	}
-
+	
 	//Add google fonts functionality if set and correct
 	$google_fonts = get_transient('atlantic_google_fonts');
+	
 	if(!empty($google_fonts) && !isset($google_fonts->error)){
 			
 		//get a listing of all fonts
@@ -277,22 +291,18 @@ function atlantic_customize_register( $wp_customize ) {
 	
 	
 	//array of font choices mapping REM units to percentages
-	$font_rem_choices = array(
-		'0.8' 	=> '80%',
-		'0.9' 	=> '90%',
-		'1.0' 	=> '100%',
-		'1.1'	=> '110%',
-		'1.2'	=> '120%',
-		'1.3'	=> '130%',
-		'1.4'	=> '140%',
-		'1.5'	=> '150%',
-		'1.6'	=> '160%',
-		'1.7'	=> '170%',
-		'1.8'	=> '180%',
-		'1.9'	=> '190%',
-		'2.0'	=> '200%',
-	);
+	$font_rem_choices = array();
+	for($i = 0; $i <= 60; $i++){
+		$value = $i / 10; 
+		$font_rem_choices["$value"] = $value . ' Rems';
+	}
 	
+	//array of font weights
+	$font_weight_choices = array();
+	for($i = 100; $i <= 900; $i+= 100){
+		$font_weight_choices[$i] = $i;
+	}
+
 	
 	//Main container for font related sections
 	$wp_customize->add_panel( 'atlantic_font_options_panel', 
@@ -359,7 +369,7 @@ function atlantic_customize_register( $wp_customize ) {
 	//Add settings for base body sizing
 	$wp_customize->add_setting( 'atlantic_font_base_size', 
 		array(
-			'default' 			=> '1.0',
+			'default' 			=> '1',
 			'type'	  			=> 'theme_mod',
 			'capability'		=> 'edit_theme_options',
 			'transport'			=> 'postMessage',
@@ -377,37 +387,161 @@ function atlantic_customize_register( $wp_customize ) {
 		)
 	);
 	
-	//H1 Section (inside Panel)	
-	//Add settings for H1 tags
-	$wp_customize->add_section( 'atlantic_h1_options',
-		array(
-			'title'				=> __('H1 Header Settings', 'atlantic'),
-			'priority'			=> 350,
-			'capability'		=> 'edit_theme_options',
-			'description'		=> 'Controls how H1 headers are displayed on your site',
-			'panel'				=> 'atlantic_font_options_panel'
-		)
-	);
-	//add H1 header size setting & control
-	$wp_customize->add_setting( 'atlantic_h1_font_size', 
-		array(
-			'default'			=> '3.0',
-			'type'				=> 'theme_mod',
-			'capability'		=> 'edit_theme_options',
-			'transport'			=> 'postMessage',
-			'sanitize_callback'	=> 'sanitize_text_field'
-		)
-	);
-	$wp_customize->add_control( 'atlantic_h1_font_size',
-		array(
-			'label'				=> __('H1 Font Size', 'atlantic'),
-			'description'		=> __('Font sizing for H1 elemenets'),
-			'section'			=> 'atlantic_h1_options',
-			'setting'			=> 'atlantic_h1_font_size',
-			'type'				=> 'select',
-			'choices'			=> $font_rem_choices
-		)
-	);
+	
+	$header_elements = array('h1' => 'H1', '.site-title' => 'Site Title', '.site-description' => 'Site Description', 'h2' => 'H2','h3' => 'H3', 'h4' => 'H4','h5' => 'H5','h6' => 'H6');
+	
+	foreach($header_elements as $header_key => $header_value){
+			
+		//Add section for this element
+		$wp_customize->add_section( 'atlantic_' . $header_key . '_options',
+			array(
+				'title'				=> __($header_value. ' Header Settings', 'atlantic'),
+				'priority'			=> 350,
+				'capability'		=> 'edit_theme_options',
+				'description'		=> 'Controls how ' . $header_value . ' headers are displayed on your site',
+				'panel'				=> 'atlantic_font_options_panel'
+			)
+		);
+		
+		//Add all settiongs
+		$wp_customize->add_setting( 'atlantic_' . $header_key .'_font_family', 
+			array(
+				'default'			=> 'default',
+				'type'				=> 'theme_mod',
+				'capability'		=> 'edit_theme_options',
+				'transport'			=> 'postMessage',
+				'sanitize_callback'	=> 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_setting( 'atlantic_' . $header_key .'_font_size', 
+			array(
+				'default'			=> '1',
+				'type'				=> 'theme_mod',
+				'capability'		=> 'edit_theme_options',
+				'transport'			=> 'postMessage',
+				'sanitize_callback'	=> 'sanitize_text_field'
+			)
+		);
+		/*TODO: Come back here and enable the font weight settings
+		$wp_customize->add_setting( 'atlantic_' . $header .'_font_weight', 
+					array(
+						'default'			=> '700',
+						'type'				=> 'theme_mod',
+						'capability'		=> 'edit_theme_options',
+						'transport'			=> 'postMessage',
+						'sanitize_callback'	=> 'sanitize_text_field'
+					)
+				);*/
+		
+		$wp_customize->add_setting( 'atlantic_' . $header_key .'_color',
+			array(
+				'default'			=> '#333',
+				'type'				=> 'theme_mod',
+				'capability'		=> 'edit_theme_options',
+				'transport'			=> 'postMessage',
+				'sanitize_callback'	=> 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_setting('atlantic_' . $header_key . '_margin_top', 
+			array(
+				'default'			=> '1',
+				'type'				=> 'theme_mod',
+				'capability'		=> 'edit_theme_options',
+				'transport'			=> 'postMessage',
+				'sanitize_callback'	=> 'sanitize_text_field'
+			)
+		);
+		$wp_customize->add_setting('atlantic_' . $header_key .'_margin_bottom', 
+			array(
+				'default'			=> '1',
+				'type'				=> 'theme_mod',
+				'capability'		=> 'edit_theme_options',
+				'transport'			=> 'postMessage',
+				'sanitize_callback'	=> 'sanitize_text_field'
+			)
+		);
+		//Add all controls
+		$wp_customize->add_control( new WP_Customize_Control_Select_Optgroup(
+		$wp_customize,
+		'atlantic_' . $header_key . '_font_family',
+			array(
+				'label'				=> __( $header_value .' Font Family', 'atlantic'),
+				'description'		=> __('Lets you choose individual fonts for each of your ' . $header_value . ' elements. If not selected will fall back to your chosen universal header font'),
+				'section'			=> 'atlantic_' . $header_key . '_options',
+				'setting'			=> 'atlantic_' . $header_key . '_font_family',
+				'type'				=> 'select',
+				'choices'			=> $font_categories,
+				'priority' 			=> 10,
+			)
+		));
+		
+
+		$wp_customize->add_control( 'atlantic_' . $header_key . '_font_size',
+			array(
+				'label'				=> __( $header_value .' Font Size', 'atlantic'),
+				'description'		=> __('Font sizing for ' . $header_value .' elemenets'),
+				'section'			=> 'atlantic_' . $header_key . '_options',
+				'setting'			=> 'atlantic_' . $header_key . '_font_size',
+				'type'				=> 'select',
+				'choices'			=> $font_rem_choices
+			)
+		);
+		//TODO: Come back here and enable soon
+		// $wp_customize->add_control( 'atlantic_' . $header . '_font_weight',
+			// array(
+				// 'label'				=> __( strtoupper($header) .' Font Weight', 'atlantic'),
+				// 'description'		=> __('Font weight for ' . strtoupper($header) .' elemenets. <strong>Some weights might not be applicable for your chosen font</strong>'),
+				// 'section'			=> 'atlantic_' . $header . '_options',
+				// 'setting'			=> 'atlantic_' . $header . '_font_size',
+				// 'type'				=> 'select',
+				// 'choices'			=> $font_weight_choices
+			// )
+		// );
+	
+		$wp_customize->add_control(new WP_Customize_Color_Control(
+			$wp_customize,
+			'atlantic_' . $header_key . '_color',
+			array(
+				'label'				=> __($header_value . ' Colour', 'atlantic'),
+				'description'		=> __('Text Colour for ' . $header_value . ' elemenets'),
+				'section'			=> 'atlantic_' . $header_key . '_options',
+				'settings'			=> 'atlantic_' . $header_key . '_color',
+			)
+		));
+		
+		
+		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_top', 
+			array(
+				'label'				=> __($header_value . ' Margin Top Size', 'atlantic'),
+				'description'		=> __('Top margin for . ' . $header_value . ' elements'),
+				'section'			=> 'atlantic_' . $header_key . '_options',
+				'setting'			=> 'atlantic_' . $header_key . '_margin_top',
+				'type'				=> 'select',
+				'choices'			=> $font_rem_choices
+			)
+		);
+		
+		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_bottom', 
+			array(
+				'label'				=> __($header_value . ' Margin Bottom Size', 'atlantic'),
+				'description'		=> __('Bottom margin for ' . $header_value . ' elements'),
+				'section'			=> 'atlantic_' . $header_key . '_options',
+				'setting'			=> 'atlantic_' . $header_key . '_margin_bottom',
+				'type'				=> 'select',
+				'choices'			=> $font_rem_choices
+			)
+		);
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }
@@ -419,8 +553,20 @@ add_action( 'customize_register', 'atlantic_customize_register' );
 
 //Dynamic css determined by customizer
 function atlantic_dynamic_css() {
+	
+	$header_elements = array('h1' => 'H1', '.site-title' => 'Site Title', '.site-description' => 'Site Description', 'h2' => 'H2','h3' => 'H3', 'h4' => 'H4','h5' => 'H5','h6' => 'H6');
+	
 ?>
-	<style type='text/css'>
+	<style type='text/css' class="theme-styles">
+	
+		<?php 
+		if( get_theme_mod('atlantic_font_base_size')){?>
+			
+			 html{
+				font-size:<?php echo get_theme_mod('atlantic_font_base_size') . 'rem'; ?>;
+			}
+		<?php }?>
+	
 		<?php if ( get_theme_mod('atlantic_bg_color') ) : ?>
 			body {
 				background-color:<?php echo get_theme_mod('atlantic_bg_color'); ?>;
@@ -434,6 +580,53 @@ function atlantic_dynamic_css() {
 				color:<?php echo get_theme_mod('atlantic_heading_color'); ?>;
 			}
 		<?php endif; ?>
+		
+		
+		<?php
+		//Output dynamic H tag settings (several options per header)
+		$html = '';
+		foreach($header_elements as $header_key => $header_value){
+			
+			//font size
+			$font_size = get_theme_mod('atlantic_' . $header_key . '_font_size');
+			
+			echo '<pre>';
+			var_dump($font_size);
+			echo '</pre>';
+			
+			if(!empty($font_size)){
+				$html .= $header_key . ' { font-size: ' . $font_size . 'rem;}'; 
+			}
+
+			//font family
+			$font_family = get_theme_mod('atlantic_' . $header_key .'_font_family');
+			if($font_family != 'default' && !empty($font_family)){
+				$html .= $header_key . ' { font-family: ' . $font_family . '; }';
+			}
+
+			//color
+			$font_color = get_theme_mod('atlantic_' . $header_key . '_color');
+			if(!empty($font_color)){
+				$html .= $header_key . ' { color: ' . $font_color . ';}';  
+				$html .= $header_key . ' > a { color: inherit!important; }';  
+			}
+			
+			//margin top output
+			$margin_top = get_theme_mod('atlantic_' . $header_key .'_margin_top');
+			if(!empty($margin_top)){
+				$html .= $header_key . ' { margin-top: ' . $margin_top . 'rem;}'; 	
+			}
+			
+			//margin bottom output
+			$margin_bottom = get_theme_mod('atlantic_' . $header_key .'_margin_bottom');
+			if(!empty($margin_bottom)){
+				$html .= $header_key . ' { margin-bottom: ' . $margin_bottom . 'rem;}'; 	
+			}
+		}
+		echo $html;
+	
+		?>
+		
 
 		<?php if ( get_theme_mod('atlantic_navigation_color') ) : ?>
 			.main-navigation a,

@@ -114,11 +114,108 @@
 	wp.customize('atlantic_font_base_size', function( value ){
 		value.bind( function ( value ){
 			int_val = parseFloat(value);
-			html_rems = (62.5 * int_val) + '%';
+			html_rems = int_val + 'rem';
 			$('html').css('font-size', html_rems);
 		});
 		
 	});
+	
+	
+	//H1 - H6 settings 
+	var header_elements = {
+		'h1' : 'H1',
+		'.site-title' : 'Site Title',
+		'.site-description' : 'Site Description',
+		'h2' : 'H2',
+		'h3' : 'H3',
+		'h4' : 'H4',
+		'h5' : 'H5',
+		'h6' : 'H6',
+	}
+	
+	//go through each and find the elements we need and adjust them visually
+	$.each(header_elements, function(index, value){
+		
+			var key = index;
+
+			//font sizing adjustments
+			wp.customize('atlantic_' + key + '_font_size', function(value){	
+				value.bind('atlantic_' + key + '_color', function(value){
+		
+					value = parseFloat(value);
+					$headers = $(key); 
+					$headers.each(function(){
+						$(this).css('font-size', value  + 'rem');
+						
+					});
+				});	
+			});
+			
+			//font family adjustments
+			wp.customize('atlantic_' + key + '_font_family', function(value){			
+				value.bind('atlantic_' + key + '_color', function(value){
+		
+					$headers = $(key); 
+					$headers.each(function(){
+						$body = $('body');
+						$body.append("<link rel='stylesheet' href='http://fonts.googleapis.com/css?family=" + value +"' type='text/css' media='all' />");
+						$(this).css('font-family', value);
+						
+					});
+				});	
+			});
+			
+			
+			
+			//colour adjustments
+			wp.customize('atlantic_' + key + '_color', function( value ){
+				value.bind('atlantic_' + key + '_color', function( value ){
+					
+					$headers =  $(key); 
+					$headers.each(function(){
+						$(this).css('color', value);
+					});
+				});
+				
+			});
+			
+			//margin top adjustmnets
+			wp.customize('atlantic_' + key + '_margin_top', function( value ){
+				value.bind('atlantic_' + key + '_margin_top', function( value ){
+					
+					$headers =  $(key); 
+					$headers.each(function(){
+						$(this).css('margin-top', value + 'rem');
+					});
+				});
+				
+			});
+			
+			//margin bottom adjustmnets
+			wp.customize('atlantic_' + key + '_margin_bottom', function( value ){
+				value.bind('atlantic_' + key + '_margin_bottom', function( value ){
+					
+					$headers =  $(key); 
+					$headers.each(function(){
+						$(this).css('margin-bottom', value + 'rem');
+					});
+				});
+				
+			});
+		
+	});
+	
+	// header_elements.forEach(function(currentValue, index, array){
+// 		
+// 		
+// 		
+// 		
+	// });
+	
+	
+	
+	
+	
 	
 	
 } )( jQuery );
