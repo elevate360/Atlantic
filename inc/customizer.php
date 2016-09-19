@@ -581,6 +581,12 @@ function atlantic_dynamic_css() {
 			}
 		<?php endif; ?>
 		
+		<?php if ( get_theme_mod('atlantic_heading_font') ) : ?>
+			h1, h2, h3, h4, h5, h6 {
+				font-family: '<?php echo get_theme_mod('atlantic_font'); ?>', 'Courier New', Helvetica, Arial, sans-serif;
+			}
+		<?php endif; ?>
+		
 		
 		<?php
 		//Output dynamic H tag settings (several options per header)
@@ -590,9 +596,6 @@ function atlantic_dynamic_css() {
 			//font size
 			$font_size = get_theme_mod('atlantic_' . $header_key . '_font_size');
 			
-			echo '<pre>';
-			var_dump($font_size);
-			echo '</pre>';
 			
 			if(!empty($font_size)){
 				$html .= $header_key . ' { font-size: ' . $font_size . 'rem;}'; 
@@ -674,11 +677,7 @@ function atlantic_dynamic_css() {
 			}
 		<?php endif; ?>
 
-		<?php if ( get_theme_mod('atlantic_heading_font') ) : ?>
-			h1, h2, h3, h4, h5, h6 {
-				font-family: '<?php echo get_theme_mod('atlantic_font'); ?>', 'Courier New', Helvetica, Arial, sans-serif;
-			}
-		<?php endif; ?>
+		
 	</style>
 <?php
 }

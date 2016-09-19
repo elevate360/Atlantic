@@ -112,28 +112,27 @@ function atlantic_scripts() {
 	if ( get_theme_mod('atlantic_font') ){
 		wp_enqueue_style( 'atlantic-google-fonts-content', '//fonts.googleapis.com/css?family=' . get_theme_mod('atlantic_font') . '' );
 	}
+
 	if ( get_theme_mod('atlantic_heading_font') ){
 		wp_enqueue_style( 'atlantic-google-fonts-heading', '//fonts.googleapis.com/css?family=' . get_theme_mod('atlantic_heading_font') . '' );
 	}
 	
 	//H specific fonts
-	$header_elements = array('h1','h2','h3','h4','h5','h6');
+	$header_elements = array('h1','h2','h3','h4','h5','h6', '.site-title', '.site-description');
 	foreach($header_elements as $header){
 		
 		//custom font families set per header tag
 		$font_family = get_theme_mod('atlantic_' . $header .'_font_family');
 
-		if($font_family != 'default' || empty($font_family)){
-			$family = '//fonts.googleapis.com/css?family=' . $font_family; 
-			wp_enqueue_style( 'atlantic-google-fonts-header-' . $font_family . '-font', $family);
+		if($font_family != 'default' && !empty($font_family)){
+			$family = '//fonts.googleapis.com/css?family=' . urlencode($font_family); 
+			wp_enqueue_style( 'atlantic-google-fonts-header-' . $header . '-font', $family);
 		}
 		
 	}
 	
 
-	if ( get_theme_mod('atlantic_font') == '' && get_theme_mod('atlantic_heading_font') == '' ) :
-		wp_enqueue_style( 'atlantic-google-fonts', '//fonts.googleapis.com/css?family=Source+Code+Pro:400,900,200' );
-	endif;
+
 
 	wp_enqueue_script( 'atlantic-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
