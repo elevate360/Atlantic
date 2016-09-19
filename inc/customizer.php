@@ -395,7 +395,7 @@ function atlantic_customize_register( $wp_customize ) {
 		//Add section for this element
 		$wp_customize->add_section( 'atlantic_' . $header_key . '_options',
 			array(
-				'title'				=> __($header_value. ' Header Settings', 'atlantic'),
+				'title'				=> __('Header Settings', 'atlantic'),
 				'priority'			=> 350,
 				'capability'		=> 'edit_theme_options',
 				'description'		=> 'Controls how ' . $header_value . ' headers are displayed on your site',
@@ -465,8 +465,8 @@ function atlantic_customize_register( $wp_customize ) {
 		$wp_customize,
 		'atlantic_' . $header_key . '_font_family',
 			array(
-				'label'				=> __( $header_value .' Font Family', 'atlantic'),
-				'description'		=> __('Lets you choose individual fonts for each of your ' . $header_value . ' elements. If not selected will fall back to your chosen universal header font'),
+				'label'				=> __( 'Header Font Family', 'atlantic'),
+				'description'		=> __('Lets you choose individual fonts for each of your header elements. If not selected will fall back to your chosen universal header font', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_font_family',
 				'type'				=> 'select',
@@ -478,8 +478,8 @@ function atlantic_customize_register( $wp_customize ) {
 
 		$wp_customize->add_control( 'atlantic_' . $header_key . '_font_size',
 			array(
-				'label'				=> __( $header_value .' Font Size', 'atlantic'),
-				'description'		=> __('Font sizing for ' . $header_value .' elemenets'),
+				'label'				=> __('Header Font Size', 'atlantic'),
+				'description'		=> __('Font sizing for the header elemenets', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_font_size',
 				'type'				=> 'select',
@@ -502,8 +502,8 @@ function atlantic_customize_register( $wp_customize ) {
 			$wp_customize,
 			'atlantic_' . $header_key . '_color',
 			array(
-				'label'				=> __($header_value . ' Colour', 'atlantic'),
-				'description'		=> __('Text Colour for ' . $header_value . ' elements', 'atlantic'),
+				'label'				=> __('Header Colour', 'atlantic'),
+				'description'		=> __('Text Colour for header elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'settings'			=> 'atlantic_' . $header_key . '_color',
 			)
@@ -512,8 +512,8 @@ function atlantic_customize_register( $wp_customize ) {
 		
 		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_top', 
 			array(
-				'label'				=> __($header_value . ' Margin Top Size', 'atlantic'),
-				'description'		=> __('Top margin for . ' . $header_value . ' elements', 'atlantic'),
+				'label'				=> __('Header Margin Top Size', 'atlantic'),
+				'description'		=> __('Top margin for header elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_margin_top',
 				'type'				=> 'select',
@@ -523,8 +523,8 @@ function atlantic_customize_register( $wp_customize ) {
 		
 		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_bottom', 
 			array(
-				'label'				=> __($header_value . ' Margin Bottom Size', 'atlantic'),
-				'description'		=> __('Bottom margin for ' . $header_value . ' elements', 'atlantic'),
+				'label'				=> __('Header Margin Bottom Size', 'atlantic'),
+				'description'		=> __('Bottom margin for header elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_margin_bottom',
 				'type'				=> 'select',
