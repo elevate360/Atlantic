@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <?php
-global $template;
+//global $template;
 //echo $template;
 
 ?>

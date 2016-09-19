@@ -503,7 +503,7 @@ function atlantic_customize_register( $wp_customize ) {
 			'atlantic_' . $header_key . '_color',
 			array(
 				'label'				=> __($header_value . ' Colour', 'atlantic'),
-				'description'		=> __('Text Colour for ' . $header_value . ' elemenets'),
+				'description'		=> __('Text Colour for ' . $header_value . ' elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'settings'			=> 'atlantic_' . $header_key . '_color',
 			)
@@ -513,7 +513,7 @@ function atlantic_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_top', 
 			array(
 				'label'				=> __($header_value . ' Margin Top Size', 'atlantic'),
-				'description'		=> __('Top margin for . ' . $header_value . ' elements'),
+				'description'		=> __('Top margin for . ' . $header_value . ' elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_margin_top',
 				'type'				=> 'select',
@@ -524,7 +524,7 @@ function atlantic_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'atlantic_' . $header_key . '_margin_bottom', 
 			array(
 				'label'				=> __($header_value . ' Margin Bottom Size', 'atlantic'),
-				'description'		=> __('Bottom margin for ' . $header_value . ' elements'),
+				'description'		=> __('Bottom margin for ' . $header_value . ' elements', 'atlantic'),
 				'section'			=> 'atlantic_' . $header_key . '_options',
 				'setting'			=> 'atlantic_' . $header_key . '_margin_bottom',
 				'type'				=> 'select',
