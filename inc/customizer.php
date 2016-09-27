@@ -395,7 +395,7 @@ function atlantic_customize_register( $wp_customize ) {
 		//Add section for this element
 		$wp_customize->add_section( 'atlantic_' . $header_key . '_options',
 			array(
-				'title'				=> __('Header Settings', 'atlantic'),
+				'title'				=> 'Header ' . $header_value . ' Settings',
 				'priority'			=> 350,
 				'capability'		=> 'edit_theme_options',
 				'description'		=> 'Controls how ' . $header_value . ' headers are displayed on your site',
