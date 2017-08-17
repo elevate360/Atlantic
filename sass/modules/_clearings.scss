@@ -1,0 +1,29 @@
+.clear:before,
+.clear:after,
+.row:before,
+.row:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after,
+.gallery:before,
+.gallery:after {
+	@include clearfix;
+}
+
+.clear:after,
+.row:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after,
+.gallery:after {
+	@include clearfix-after;
+}

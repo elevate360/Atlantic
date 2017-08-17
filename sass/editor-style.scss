@@ -1,0 +1,80 @@
+@import "../node_modules/susy/sass/susy";
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
+
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+body.mce-content-body {
+	max-width: 720px;
+	margin: 1.5rem;
+}
+
+blockquote, q {
+	quotes: "" "";
+
+	&:before,
+	&:after {
+		content: "";
+	}
+}
+
+hr {
+	background-color: $color__background-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+img {
+	height: auto; /* Make sure images are scaled correctly. */
+	max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
+}
+
+::-webkit-input-placeholder {
+	color: $color__text-input;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+	color: $color__text-input;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+	color: $color__text-input;
+}
+
+:-ms-input-placeholder {
+	color: $color__text-input;
+}
+
+::selection {
+	background: $color__link;
+	color: #fff;
+}
+::-moz-selection {
+	background: $color__link;
+	color: #fff;
+}
+
+@import "elements/lists";
+@import "elements/tables";
+
+@import "typography/headings";
+
+@import "typography/copy";
+
+@import "navigation/links";
+
+@import "media/media";

@@ -1,0 +1,21 @@
+@media (min-width: 768px) {
+
+	.container {
+	    width: 720px;
+	    max-width: 100%;
+	}
+
+	@import "../navigation/menus-desktop";
+
+	.row {
+		.entry {
+		    max-width: 50%;
+		    float: left;
+		}
+		.widget {
+			max-width: 33.33%;
+			float: left;
+		}
+	}
+
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying video posts
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -10,12 +10,45 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header">
+
+		<?php if ( ! is_singular() && ! post_password_required() ) : ?>
+			<div class="entry-media">
+				<?php echo atlantic_media_grabber( array( 'type' => 'video', 'split_media' => true ) );?>
+			</div>
+		<?php elseif( has_post_thumbnail() ) :?>
+			<?php atlantic_post_thumbnail();?>
+		<?php endif;?>
+
+		<?php
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif;
+
+		if ( 'post' === get_post_type() ) : ?>
+		<div class="entry-meta">
+			<?php atlantic_posted_on(); ?>
+		</div><!-- .entry-meta -->
+		<?php
+		endif; ?>
+	</header><!-- .entry-header -->
+
+	<?php if( is_singular() ) : ?>
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'atlantic' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'atlantic' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				get_the_title()
 			) );
 
 			wp_link_pages( array(
@@ -24,18 +57,15 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
+	<?php else : ?>
+	<div class="entry-summary">
+		<?php the_excerpt();?>
+	</div>
+	<?php endif;?>
 
-	<footer class="entry-footer inner">
-		<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Name of current post */
-					esc_html__( 'Edit %s', 'atlantic' ),
-					the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				),
-				'<p class="edit-link">',
-				'</p>'
-			);
-		?>
+	<?php if( is_singular() ) :?>
+	<footer class="entry-footer">
+		<?php atlantic_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+	<?php endif;?>
+</article><!-- #post-<?php the_ID(); ?> -->

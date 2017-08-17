@@ -1,0 +1,35 @@
+@media (min-width: 992px) {
+
+	.container {
+	    width: 960px;
+	    max-width: 100%;
+	}
+
+	.site-branding {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+
+	.row {
+		.widget {
+		    max-width: 25%;
+		}
+	}
+
+	.primary-footer-info,
+	.secondary-footer-info {
+		max-width: 50%;
+	}
+
+
+	.primary-footer-info {
+		text-align: right;
+		float: right;
+	}
+
+	.secondary-footer-info {
+		text-align: left;
+		float: left;
+	}
+
+}

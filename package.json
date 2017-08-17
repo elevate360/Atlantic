@@ -1,0 +1,36 @@
+{
+  "name": "atlantic",
+  "title": "Atlantic",
+  "version": "1.2.0",
+  "private": true,
+  "author": {
+    "name": "Elevate360",
+    "email": "elevate360@gmail.com",
+    "url": "https://elevate360.com.au/"
+  },
+  "license": {
+    "type": "GPL-2.0+",
+    "url": "http://www.gnu.org/licenses/gpl-2.0.html"
+  },
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "autoprefixer": "^7.1.2",
+    "grunt": "^1.0.1",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-checktextdomain": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.2.0",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^3.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-wp-css": "^0.2.1",
+    "grunt-wp-i18n": "^1.0.0",
+    "node-sass": "^4.5.3",
+    "susy": "^2.2.12"
+  }
+}

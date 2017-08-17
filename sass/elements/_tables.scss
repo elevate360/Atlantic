@@ -1,0 +1,38 @@
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+caption{
+	font-weight: bold;
+}
+
+th {
+	font-weight: normal;
+}
+
+caption {
+	margin-bottom: 1em;
+}
+
+th,
+td {
+	border: 1px solid rgba(78,52,46,.05);
+	padding: 0.75rem;
+	text-align: left;
+}
+
+thead {
+	background: rgba(78,52,46,.025);
+}
+
+.table-responsive {
+	display: block;
+	width: 100%;
+	min-height: 0%;
+	overflow-x: auto;
+	margin-bottom: 1.5em;
+	& table:first-child {
+		margin: 0;
+	}
+}

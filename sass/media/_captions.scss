@@ -1,0 +1,27 @@
+.wp-caption {
+	background-color: #fff;
+	margin-bottom: 1.5rem;
+	max-width: 100%;
+	overflow: hidden;
+
+	img[class*="wp-image-"] {
+		@include center-block;
+	}
+
+	> a {
+		display: block;
+		img {
+			vertical-align: middle;
+		}
+		&:hover img,
+		&:focus img {
+			opacity: 0.5;
+		}
+	}
+}
+
+.wp-caption-text {
+	@include font-size(0.875);
+	padding: 1rem 0 .5rem;
+	margin-bottom: 0;
+}

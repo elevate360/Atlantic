@@ -1,0 +1,19 @@
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1rem;
+	position: relative; /* Align more nicely with capital letters */
+	top: -0.0625rem;
+	vertical-align: middle;
+	width: 1rem;
+	stroke-width: 0;
+	stroke: currentColor;
+}
+
+.svg-fallback {
+	display: none;
+}
+
+.no-svg .svg-fallback {
+	display: inline-block;
+}

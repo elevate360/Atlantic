@@ -1,0 +1,19 @@
+@media (min-width: 576px) {
+
+	.container {
+	    width: 540px;
+	    max-width: 100%;
+	}
+
+	.site-branding {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	.row {
+		.widget {
+		    max-width: 50%;
+		}
+	}
+
+}

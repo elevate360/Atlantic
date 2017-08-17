@@ -1,0 +1,90 @@
+.site-header,
+.site-content,
+.site-footer {
+	position: relative;
+}
+
+/** Site Branding */
+.site-branding {
+	position: relative;
+	text-transform: uppercase;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	text-align: center;
+	&,
+	a {
+		color: $color__text-main;
+		&:hover,
+		&:focus {
+			color: $color__text-main;
+		}
+	}
+}
+
+.site-title,
+.site-description {
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.site-title {
+	@include font-size(3);
+	font-weight: 900;
+}
+
+.site-description {
+	color: $color__text-secondary;
+	display: inline-block;
+	@include font-size(0.875);
+	position: relative;
+	&:before,
+	&:after {
+		background-color: $color__text-secondary;
+		content: " ";
+		width: 32px;
+		height: 1px;
+		position: absolute;
+		top: 50%;
+		left: -42px;
+	}
+	&:after {
+		left: auto;
+		right: -42px;
+	}
+}
+
+a.custom-logo-link {
+	display: inline-block;
+	max-width: 300px;
+}
+
+/** Site Footer */
+.widget-area,
+.site-footer {
+	> .container {
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+		position: relative;
+		&:before {
+			background-color: $color__text-main;
+			content: " ";
+			width: 32px;
+			height: 4px;
+			position: absolute;
+			top: -2px;
+			left: 15px;
+		}
+	}
+}
+
+.site-footer {
+
+}
+
+.primary-footer-info,
+.secondary-footer-info {
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	max-width: 100%;
+}

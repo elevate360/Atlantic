@@ -1,0 +1,174 @@
+.comments-area {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+.comments-title {
+	@include font-size(1.5);
+	text-transform: uppercase;
+	text-align: center;
+	padding-bottom: 1.5rem;
+	margin-bottom: 1.5rem;
+	position: relative;
+	&:before,
+	&:after {
+		background-color: $color__background-hr;
+		content: " ";
+		width: 128px;
+		height: 2px;
+		position: absolute;
+		bottom: -1px;
+		left: 50%;
+		margin-left: -64px;
+	}
+	&:after {
+		width: .5rem;
+		height: .5rem;
+		bottom: -4px;
+		margin-left: -.25rem;
+		border-radius: .5rem;
+	}
+}
+
+.comment-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	.comment {
+		margin-bottom: 1.5rem;
+		.children {
+			margin: 0;
+			list-style-type: none;
+			padding-left: 0;
+			.comment {
+				border-left: 4px solid $color__background-hr;
+				padding-left: 1.5rem;
+			}
+		}
+		.avatar {
+			float: left;
+			margin-right: 1em;
+			display: block;
+			vertical-align: top;
+			border-radius: 64px;
+		}
+		.comment-respond {
+			padding-bottom: 1.5rem;
+		}
+	}
+
+	.pingback {
+		border-bottom: 4px solid $color__background-hr;
+		padding-top: 1.5rem;
+		padding-bottom: 1.5rem;
+	}
+
+}
+
+
+.no-comments {
+	padding: 1em 1.5em 0;
+	margin-bottom: 0;
+}
+
+.comment-meta {
+	position: relative;
+	a {
+		color: $color__text-main;
+		@include font-size(1.125);
+		font-weight: bold;
+		text-transform: uppercase;
+		&:hover,
+		&:focus {
+			color: $color__link;
+		}
+	}
+	.edit-link {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+
+.comment-metadata a {
+	color: $color__text-secondary;
+	@include font-size(0.75);
+}
+
+.comment-content {
+	padding-top: 1.5em;
+	&,
+	a {
+		word-wrap: break-word;
+	}
+}
+
+.comment-body > .reply a {
+	background: transparent;
+	border: 1px solid $color__text-secondary;
+	color: $color__text-secondary;
+	display: inline-block;
+	@include font-size(0.875);
+	font-weight: bold;
+	line-height: 1;
+	padding: .5rem 1.5em;
+	margin-bottom: 1.5rem;
+	&:hover,
+	&:focus {
+		background-color: $color__link;
+		border-color: $color__link;
+		color: #fff;
+	}
+}
+
+#cancel-comment-reply-link {
+	background-color: $color__text-main;
+	display: block;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	right: 0;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 32px;
+	overflow: hidden;
+	.icon {
+		color: #fff;
+	}
+	&:hover,
+	&:focus {
+		background-color: $color__link;
+	}
+}
+
+.comment-reply-title {
+	text-transform: uppercase;
+	position: relative;
+}
+
+.comment-form {
+	label {
+		color: $color__text-secondary;
+		display: block;
+		@include font-size(0.75);
+		letter-spacing: 0.25rem;
+		margin-bottom: .5rem;
+		text-transform: uppercase;
+	}
+	input {
+		width: 100%;
+	}
+}
+
+label .required {
+	color: $color__text-require;
+}
+
+.form-submit input[type="submit"] {
+	text-transform: uppercase;
+}

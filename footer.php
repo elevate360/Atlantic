@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the footer.
+ * The template for displaying the footer
  *
  * Contains the closing of the #content div and all content after.
  *
@@ -11,14 +11,33 @@
 
 ?>
 
-		</div><!-- #content -->
-	</div><!-- #page -->
+	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="inner site-info">
-			<?php printf( esc_html__( '%1$s by %2$s', 'atlantic' ), 'atlantic', '<a href="https://elevate360.com.au/" rel="designer">elevate</a>' ); ?>
-		</div><!-- .site-info -->
+	<footer id="colophon" class="site-footer">
+		<div class="container">
+			<div class="row">
+				<?php if( has_nav_menu( 'menu-2' ) ) :?>
+				<div class="primary-footer-info">
+					<nav class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Footer Social Links Menu', 'atlantic' ); ?>">
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'menu-2',
+								'menu_class'     => 'social-links-menu',
+								'depth'          => 1,
+								'link_before'    => '<span class="screen-reader-text">',
+								'link_after'     => '</span>' . atlantic_get_svg( array( 'icon' => 'share' ) ),
+							) );
+						?>
+					</nav><!-- .social-navigation -->
+				</div>
+				<?php endif;?>
+				<div class="secondary-footer-info">
+					<?php atlantic_do_footer_copyright();?>
+				</div>
+			</div><!-- .row -->
+		</div><!-- .container -->
 	</footer><!-- #colophon -->
+</div><!-- #page -->
 
 <?php wp_footer(); ?>
 

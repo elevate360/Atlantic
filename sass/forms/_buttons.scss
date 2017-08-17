@@ -1,0 +1,21 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: transparent;
+	border: 1px solid $color__text-main;
+	color: $color__text-main;
+	@include font-size(1);
+	font-weight: bold;
+	line-height: 1;
+	padding: 1rem 1.25rem;
+	transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: $color__link;
+		border-color: $color__link;
+		color: #fff;
+	}
+}
