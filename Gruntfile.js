@@ -180,7 +180,8 @@ module.exports = function (grunt) {
 					'sass/variables-site/*.scss'
 				],
 				tasks: [
-					'sass'
+					'sass',
+					'cssmin'
 				]
 			},
 			js: {

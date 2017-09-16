@@ -2,20 +2,20 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	background-color: transparent;
-	border: 1px solid $color__text-main;
-	color: $color__text-main;
+	background-color: $color__link;
+	border: 1px solid $color__link;
+	color: #fff;
 	@include font-size(1);
 	font-weight: bold;
 	line-height: 1;
-	padding: 1rem 1.25rem;
+	padding: .75rem 1.25rem;
 	transition: color 0.25s ease-in-out, background 0.25s ease-in-out;
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: $color__link;
-		border-color: $color__link;
+		background-color: $color__link-hover;
+		border-color: $color__link-hover;
 		color: #fff;
 	}
 }

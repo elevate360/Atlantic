@@ -7,6 +7,37 @@
  * @package Atlantic
  */
 
+if ( ! function_exists( 'atlantic_breadcrumb' ) ) :
+/**
+ * Display breadcrumb compatibility
+ * @return void
+ */
+function atlantic_breadcrumb(){
+
+	$breadcrumb_markup_open = '<div id="breadcrumb" typeof="BreadcrumbList" vocab="http://schema.org/"><div class="wrap">';
+	$breadcrumb_markup_close = '</div></div>';
+
+	if ( function_exists( 'bcn_display' ) ) {
+		echo $breadcrumb_markup_open;
+		bcn_display();
+		echo $breadcrumb_markup_close;
+	}
+	elseif ( function_exists( 'breadcrumbs' ) ) {
+		breadcrumbs();
+	}
+	elseif ( function_exists( 'crumbs' ) ) {
+		crumbs();
+	}
+	elseif ( class_exists( 'WPSEO_Breadcrumbs' ) ) {
+		yoast_breadcrumb( $breadcrumb_markup_open, $breadcrumb_markup_close );
+	}
+	elseif( function_exists( 'yoast_breadcrumb' ) && ! class_exists( 'WPSEO_Breadcrumbs' ) ) {
+		yoast_breadcrumb( $breadcrumb_markup_open, $breadcrumb_markup_close );
+	}
+
+}
+endif;
+
 if ( ! function_exists( 'atlantic_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
@@ -65,19 +96,24 @@ function atlantic_entry_footer() {
 		$categories_list = get_the_category_list( esc_html__( ', ', 'atlantic' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'atlantic' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">%s <span class="screen-reader-text">' . esc_html__( 'Posted in', 'atlantic' ) . '</span> %s</span>',
+			atlantic_get_svg( array( 'icon' => 'category' ) ),
+			$categories_list ); // WPCS: XSS OK.
 		}
 
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'atlantic' ) );
 		if ( $tags_list ) {
 			/* translators: 1: list of tags. */
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'atlantic' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+			printf( '<span class="tags-links">%s <span class="screen-reader-text">' . esc_html__( 'Tagged', 'atlantic' ) . '</span> %s</span>',
+			atlantic_get_svg( array( 'icon' => 'tag' ) ),
+			$tags_list ); // WPCS: XSS OK.
 		}
 	}
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
+		echo atlantic_get_svg( array( 'icon' => 'comment' ) );
 		comments_popup_link(
 			sprintf(
 				wp_kses(
@@ -153,9 +189,9 @@ function atlantic_posts_navigation(){
 }
 endif;
 
-if( ! function_exists( 'atlantic_footer_copyright' ) ) :
+if( ! function_exists( 'atlantic_get_footer_copyright' ) ) :
 /**
- * [atlantic_footer_copyright description]
+ * [atlantic_get_footer_copyright description]
  * @return [type] [description]
  */
 function atlantic_get_footer_copyright(){
@@ -164,9 +200,9 @@ function atlantic_get_footer_copyright(){
 		'<a href="'. esc_url( home_url() ) .'">'. esc_attr( get_bloginfo( 'name' ) ) .'</a>',
 		'<a href="'. esc_url( 'https://wordpress.org/' ) .'">WordPress</a>' );
 
-	apply_filters( 'atlantic_footer_copyright', $default_footer_copyright );
+	apply_filters( 'atlantic_get_footer_copyright', $default_footer_copyright );
 
-	$footer_copyright = get_theme_mod( 'footer_copyright' );
+	$footer_copyright = get_theme_mod( 'footer_copyright', $default_footer_copyright );
 
 	if ( !empty( $footer_copyright ) ) {
 		$footer_copyright = str_replace( '[YEAR]', date_i18n( __('Y', 'atlantic' ) ), $footer_copyright );
@@ -198,7 +234,7 @@ if ( ! function_exists( 'atlantic_return_to_top' ) ) :
  * @return string
  */
 function atlantic_return_to_top(){
-	if( get_theme_mod( 'return_to_top', true ) ) {
+	if( get_theme_mod( 'return_top', true ) ) {
 		echo '<a href="#page" class="return-to-top">'. atlantic_get_svg( array( 'icon' => 'top' ) ) .'</a>';
 	}
 }

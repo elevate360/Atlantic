@@ -15,6 +15,18 @@ function atlantic_is_sticky(){
 }
 endif;
 
+if ( ! function_exists( 'atlantic_is_woocommerce' ) ) :
+/**
+ * [atlantic_is_woocommerce description]
+ * @return [type] [description]
+ */
+function atlantic_is_woocommerce(){
+	if ( function_exists( 'is_woocommerce' ) ) {
+		is_woocommerce();
+	}
+}
+endif;
+
 if( ! function_exists( 'atlantic_get_min_suffix' ) ) :
 /**
  * Helper function for getting the script/style `.min` suffix for minified files.

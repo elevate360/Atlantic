@@ -8,7 +8,7 @@
 	@import "../navigation/menus-desktop";
 
 	.row {
-		.entry {
+		&.masonry-container .entry {
 		    max-width: 50%;
 		    float: left;
 		}
@@ -16,6 +16,25 @@
 			max-width: 33.33%;
 			float: left;
 		}
+	}
+
+	.comment-form-author,
+	.comment-form-email,
+	.comment-form-url {
+		float: left;
+		width: 30.55555555555556%;
+		margin-right: 04.16666666666667%;
+	}
+
+	.comment-form-url {
+		float: right;
+		margin-right: 0;
+	}
+
+	.comment-form input[type="submit"] {
+		clear: both;
+		width: auto;
+		min-width: 25%;
 	}
 
 }

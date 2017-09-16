@@ -1,17 +1,3 @@
-.site {
-	background-color: $color__background-site;
-	&:before {
-		background-color: rgba( 0, 0, 0, 0.01 );
-		content: "";
-		transform: skew(0, -60deg);
-		position: absolute;
-		left: 0;
-		right: 0;
-	    top: 500px;
-	    height: 1500px;
-	}
-}
-
 .container {
 	position: relative;
 	margin-left: auto;
@@ -31,6 +17,25 @@
 	    padding-right: 15px;
 	    padding-left: 15px;
 	}
+}
+
+.site {
+	position: relative;
+	overflow-y: hidden;
+	&:before {
+		background-color: rgba( 0, 0, 0, 0.01 );
+		content: "";
+		transform: skew(0, -60deg);
+		position: absolute;
+		left: 0;
+		right: 0;
+	    top: 500px;
+	    height: 1500px;
+	}
+}
+
+.site-content {
+	padding-top: 1.5rem;
 }
 
 @import "small";

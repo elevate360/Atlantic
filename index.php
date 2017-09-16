@@ -12,12 +12,14 @@
  * @package Atlantic
  */
 
+$setting = atlantic_setting_default();
+$layout = get_theme_mod( 'blog_layout', $setting['blog_layout'] );
 get_header(); ?>
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
 		<div class="container">
-			<div class="row masonry-container">
+			<div class="row <?php echo esc_attr( $layout );?>">
 			<?php
 			if ( have_posts() ) :
 

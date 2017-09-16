@@ -3,11 +3,13 @@
 }
 
 .entry {
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
+	.default-container & {
+		margin-bottom: 3rem;
+	}
 }
 
 .js {
-
 	.masonry-container {
 	    .entry {
 	    	opacity: 0;
@@ -26,7 +28,8 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 1.5rem 0 0;
+	word-wrap: break-word;
 }
 
 .entry-quote,
@@ -39,6 +42,7 @@
 	color: #fff;
 	padding: 3rem 3rem 1.5rem;
 	margin-top: 0;
+	margin-bottom: 1.5rem;
 	text-align: center;
 	position: relative;
 	z-index: 0;
@@ -133,6 +137,20 @@
 			color: $color__link;
 		}
 	}
+	.single-content:not(.single-product) & {
+		position: relative;
+		padding-top: 2.5rem;
+		&:before {
+			background-color: $color__text-main;
+			content: " ";
+			width: 32px;
+			height: 4px;
+			position: absolute;
+			top: -2px;
+			left: 50%;
+			margin-left: -16px;
+		}
+	}
 }
 
 .entry-meta,
@@ -147,6 +165,38 @@
 	}
 }
 
+.entry-footer {
+	@include font-size(0.875);
+	text-align: center;
+	position: relative;
+	.icon {
+		color: $color__text-secondary;
+		@include font-size(1);
+	}
+	a {
+		color: $color__text-secondary;
+		&:hover,
+		&:focus {
+			color: $color__link-hover;
+		}
+	}
+	.cat-links,
+	.tags-links,
+	.comments-link {
+		margin-right: 1rem;
+	}
+	.home &,
+	.archive & {
+		border-bottom: 1px solid rgba( 0,0,0,.1 );
+		padding-bottom: 3rem;
+	}
+	.home .entry:last-child &,
+	.archive .entry:last-child & {
+		border-bottom-width: 0;
+		padding-bottom: 0;
+	}
+}
+
 .post-thumbnail {
 	background-color: #000;
 	display: inline-block;
@@ -154,6 +204,9 @@
 	overflow: hidden;
 	margin-bottom: 1.5rem;
 	text-align: center;
+	.single-content & {
+		margin-bottom: 2.5rem;
+	}
 	a {
 		position: relative;
 		display: block;
@@ -213,11 +266,51 @@
 	display: none;
 }
 
+.single-content .entry-header,
+.default-container .entry-header {
+	text-align: center;
+}
+
+.entry-title,
+.entry-meta,
+.entry-content,
+.entry-summary,
+.entry-footer,
+.author-info,
+.comments-area {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.error-404 {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 3rem;
+	padding-bottom: 6rem;
+	text-align: center;
+	overflow: hidden;
+}
+
+.page-header {
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	overflow: hidden;
+}
+
 .author-info {
 	position: relative;
-	padding-top: 3rem;
 	margin-bottom: 3rem;
 	text-align: center;
+	.page-header & {
+		padding-top: 0;
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
 }
 
 h2.about-author {

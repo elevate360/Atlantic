@@ -1,19 +1,20 @@
 === Atlantic ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-
-Requires at least: 4.0
+Contributors: elevate360
+Requires at least: 4.7
 Tested up to: 4.8
-Stable tag: 1.0.0
+Stable tag: 1.1.0
+Version: 1.2.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
+Tags: one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
 
-A starter theme called Atlantic.
+
+The Atlantic Theme is built for small businesses looking to stand out. Atlantic combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Atlantic.
 
 == Description ==
 
-WordPress Theme
+The Atlantic Theme is built for small businesses looking to stand out. Atlantic combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Atlantic.
 
 == Installation ==
 
@@ -23,16 +24,70 @@ WordPress Theme
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
-
-Atlantic includes support for Infinite Scroll in Jetpack.
+= How to change Atlantic theme fonts?
+You can easily install and use Easy Google Fonts plugin.
 
 == Changelog ==
+= 1.2.0 - September 18, 2017 =
+* Major update
+* Added WooCommerce support
 
-= 1.0 - May 12 2015 =
+= 1.0.0 - August 6, 2017 =
 * Initial release
 
 == Credits ==
 
-* Based on Underscores http://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
+Atlantic WordPress Theme, Copyright 2016 WordPress.org
+Atlantic is distributed under the terms of the GNU GPL
+
+Atlantic bundles the following third-party resources:
+
+Based on Underscores, (C) 2012-2017 Automattic, Inc.
+**License:** GPLv2 or later
+Source: http://underscores.me/
+
+normalize.css, Copyright 2012-2016 Nicolas Gallagher and Jonathan Neal
+**License:** MIT
+Source: https://necolas.github.io/normalize.css/
+
+html5shiv by [aFarkas](https://github.com/aFarkas)
+**License:** MIT and GPL-2.0
+Source: https://github.com/aFarkas/html5shiv
+
+nwmatcher by [dperini](https://github.com/dperini)
+**License:** MIT
+Source: https://github.com/dperini/nwmatcher
+
+Respond by [scottjehli](https://github.com/scottjehli)
+**License:** MIT
+Source: https://github.com/scottjehl/Respond
+
+selectivizr by [keithclark](https://github.com/keithclark)
+**License:** MIT
+Source: https://github.com/keithclark/selectivizr
+
+Fitvids by [Chris Coyier](http://chriscoyier.net/) and [Paravel](http://paravelinc.com/)
+**License:** WTFPL
+Source: https://github.com/davatron5000/FitVids.js
+
+Slick by [Ken Wheeler](https://github.com/kenwheeler)
+**License:** MIT
+Source: http://kenwheeler.github.io/slick/
+
+TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
+**License:** GPL-2.0+
+Source: http://tgmpluginactivation.com/
+
+Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
+**License:** GPL-2.0+
+Source: https://github.com/Automattic/genericons-neue
+
+Social Logos by [Automattic](https://github.com/Automattic/social-logos)
+**License:** GPL-2.0+
+Source: https://github.com/Automattic/social-logos
+
+- Screenshot image, Pixabay
+**License:** CC0 1.0 Universal (CC0 1.0)
+Source:
+https://www.pexels.com/photo/beautiful-blur-bouquet-carefree-573302/
+https://www.pexels.com/photo/art-astronomy-atmosphere-aurora-borealis-360912/

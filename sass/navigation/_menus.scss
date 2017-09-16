@@ -14,8 +14,8 @@
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: #fff;
-		border-color: $color__background-hr;
+		background-color: transparent;
+		border-color: transparent;
 		color: $color__text-main;
 	}
 	&:focus {
@@ -247,4 +247,59 @@
 		}
 	}
 
+}
+
+.pagination {
+	clear: both;
+	display: block;
+	position: relative;
+	border-radius: 0;
+	text-align: center;
+	margin-bottom: 1.5rem;
+}
+
+.page-numbers {
+	color: $color__text-main;
+	display: none;
+	font-weight: bold;
+	padding: 1rem;
+	@include font-size(1);
+	position: relative;
+	&.current {
+		color: $color__text-main;
+		display: inline-block;
+		.screen-reader-text {
+		    clip: auto;
+		    height: auto;
+		    overflow: auto;
+		    position: relative !important;
+		    width: auto;
+		    text-transform: uppercase;
+		}
+	}
+	&.next,
+	&.prev {
+		display: block;
+		@include font-size(1.25);
+		padding-left: 0;
+		padding-right: 0;
+		position: absolute;
+		top: 0;
+	}
+	&.next {
+		right: 0;
+	}
+	&.prev {
+		left: 0;
+	}
+	&:hover:not(.current),
+	&:focus:not(.current) {
+		color: $color__link-hover;
+	}
+	&.dots{
+		&:hover,
+		&:focus {
+			color: $color__text-secondary!important;
+		}
+	}
 }

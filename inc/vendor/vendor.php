@@ -18,7 +18,7 @@ require_once get_template_directory() . '/inc/vendor/class-tgm-plugin-activation
 /**
  * Register the required plugins for this theme.
  */
-function caspian_register_required_plugins() {
+function atlantic_register_required_plugins() {
 	/*
 	 * Array of plugin arrays. Required keys are name and slug.
 	 * If the source is NOT from the .org repo, then source is also required.
@@ -27,8 +27,8 @@ function caspian_register_required_plugins() {
 
 		array(
 			/* Recommended plugin name */
-			'name'      => __( 'Jetpack', 'caspian' ),
-			'slug'      => 'jetpack',
+			'name'      => __( 'WooCommerce', 'atlantic' ),
+			'slug'      => 'woocommerce',
 			'required'  => false,
 		),
 
@@ -38,7 +38,7 @@ function caspian_register_required_plugins() {
 	 * Array of configuration settings.
 	 */
 	$config = array(
-		'id'           => 'caspian',
+		'id'           => 'atlantic',
 		'default_path' => '',
 		'menu'         => 'tgmpa-install-plugins',
 		'has_notices'  => true,
@@ -51,4 +51,4 @@ function caspian_register_required_plugins() {
 	tgmpa( $plugins, $config );
 
 }
-add_action( 'tgmpa_register', 'caspian_register_required_plugins' );
+add_action( 'tgmpa_register', 'atlantic_register_required_plugins' );

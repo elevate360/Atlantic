@@ -12,6 +12,6 @@
 
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'atlantic' ); ?></a>
 
-<?php if( is_active_sidebar( 'sidebar-1' ) ) :?>
+<?php if( is_active_sidebar( 'sidebar-1' ) || is_active_sidebar( 'sidebar-2' ) ) :?>
 	<a class="skip-link screen-reader-text" href="#secondary"><?php esc_html_e( 'Skip to Footer', 'atlantic' ); ?></a>
 <?php endif;?>

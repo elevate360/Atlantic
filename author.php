@@ -7,8 +7,6 @@
  * @package Atlantic
  */
 
-$setting = atlantic_setting_default();
-$layout = get_theme_mod( 'blog_layout', $setting['blog_layout'] );
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -18,13 +16,41 @@ get_header(); ?>
 				if ( have_posts() ) : ?>
 
 					<header class="page-header">
-						<?php
-							the_archive_title( '<h1 class="page-title">', '</h1>' );
-							the_archive_description( '<div class="archive-description">', '</div>' );
-						?>
+						<div class="author-info">
+
+							<figure class="author-avatar">
+								<?php
+								/**
+								 * Filter the Atlantic author bio avatar size.
+								 *
+								 * @param int $size The avatar height and width size in pixels.
+								 */
+								$author_bio_avatar_size = apply_filters( 'atlantic_author_bio_avatar_size', 96 );
+
+								echo get_avatar( get_the_author_meta( 'user_email' ), $author_bio_avatar_size );
+								?>
+							</figure><!-- .author-avatar -->
+
+							<div class="author-detail">
+
+								<h1 class="author-title">
+									<?php echo get_the_author(); ?>
+								</h1>
+
+								<div class="author-description">
+
+									<p class="author-bio">
+										<?php the_author_meta( 'description' ); ?>
+									</p><!-- .author-bio -->
+
+								</div><!-- .author-description -->
+
+							</div><!-- .author-detail -->
+
+						</div><!-- .author-info -->
 					</header><!-- .page-header -->
 
-					<div class="row <?php echo esc_attr( $layout );?>">
+					<div class="row masonry-container">
 					<?php
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
@@ -44,7 +70,6 @@ get_header(); ?>
 					get_template_part( 'template-parts/content', 'none' );
 
 				endif; ?>
-				<?php atlantic_posts_navigation();?>
 			</div><!-- .container -->
 		</main><!-- #main -->
 	</div><!-- #primary -->

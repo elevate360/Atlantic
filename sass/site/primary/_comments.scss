@@ -8,7 +8,7 @@
 }
 
 .comments-title {
-	@include font-size(1.5);
+	@include font-size(1.25);
 	text-transform: uppercase;
 	text-align: center;
 	padding-bottom: 1.5rem;
@@ -18,19 +18,12 @@
 	&:after {
 		background-color: $color__background-hr;
 		content: " ";
-		width: 128px;
+		width: 64px;
 		height: 2px;
 		position: absolute;
 		bottom: -1px;
 		left: 50%;
-		margin-left: -64px;
-	}
-	&:after {
-		width: .5rem;
-		height: .5rem;
-		bottom: -4px;
-		margin-left: -.25rem;
-		border-radius: .5rem;
+		margin-left: -32px;
 	}
 }
 
@@ -165,7 +158,7 @@
 	}
 }
 
-label .required {
+.required {
 	color: $color__text-require;
 }
 

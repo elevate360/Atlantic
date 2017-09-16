@@ -1,7 +1,7 @@
-$color__background-body: #404040;
+$color__background-body: #fff;
 $color__background-site: #fff;
 $color__background-screen: #00bcd4;
-$color__background-hr: #eceff1;
+$color__background-hr: rgba(78,52,46,.05);
 $color__background-button: #e6e6e6;
 $color__background-pre: #eceff1;
 $color__background-ins: #fff9c0;
@@ -17,6 +17,8 @@ $color__link-hover: #0097a7;
 
 $color__text-main: #404040;
 $color__text-secondary: #909090;
+$color__text-price: #77a464;
+$color__text-stars: #fc0;
 
 $color__text-require: #f44336;
 
@@ -25,3 +27,7 @@ $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
 $color__border-abbr: #666;
+
+$color__background-message: #16a085;
+$color__background-error: #e74c3c;
+$color__background-sale: #f44336;

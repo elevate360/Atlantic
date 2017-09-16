@@ -21,6 +21,12 @@ function atlantic_body_classes( $classes ) {
 		$classes[] = 'single-content';
 	}
 
+	if ( class_exists( 'WooCommerce' ) ) {
+		if ( get_theme_mod( 'wc_columns', 'col-shop-4' ) ) {
+			$classes[] = get_theme_mod( 'wc_columns', 'col-shop-4' );
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'atlantic_body_classes' );

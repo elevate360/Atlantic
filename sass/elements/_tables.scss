@@ -5,25 +5,26 @@ table {
 
 caption{
 	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+fieldset {
+	border-color: $color__background-hr;
 }
 
 th {
 	font-weight: normal;
 }
 
-caption {
-	margin-bottom: 1em;
-}
-
 th,
 td {
-	border: 1px solid rgba(78,52,46,.05);
+	border: 1px solid $color__background-hr;
 	padding: 0.75rem;
 	text-align: left;
 }
 
 thead {
-	background: rgba(78,52,46,.025);
+	background: $color__background-hr;
 }
 
 .table-responsive {

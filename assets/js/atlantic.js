@@ -152,9 +152,9 @@
 	$table 			= $( 'table' ),
 	$subMenu 		= $( '.main-navigation .sub-menu' ),
 	$subMenuToggle 	= $( '.sub-menu-toggle' ),
-	$entryGallery 	= $( '.entry-gallery' ),
 	$masonryEntry 	= $( '.site-content .masonry-container' ),
 	$masonryWidget 	= $( '.widget-area .masonry-container' ),
+	$entryGallery 	= $( '.entry-gallery' ),
 	$returnTop 		= $( '.return-to-top' );
 
 	// Smooth scroll
@@ -225,28 +225,29 @@
 					dotsClass: 'atlantic-slick-dots'
 				});
 
-				$( '#'+ galleryID ).magnificPopup({
-					delegate: 'a',
-					type: 'image',
-					closeOnContentClick: false,
-					closeBtnInside: false,
-					mainClass: 'mfp-img-mobile',
-					image: {
-						verticalFit: true,
-						titleSrc: function(item) {
-							return item.el.attr('title');
-						}
-					},
-					gallery: {
-						enabled: true
-					}
-
-				});
-
 			}
 		});
 
 	}
+
+    function do__equalHeight( parentEl, childEl ) {
+
+		$( parentEl ).each(function(){
+
+	        var highestBox = 0;
+
+	        $(this).find( childEl ).each(function(){
+	            $(this).css('height','auto');
+	            if($(this).height() > highestBox){
+	                highestBox = $(this).height();
+	            }
+	        });
+
+	        $(this).find( childEl ).height(highestBox);
+
+	    });
+
+    }
 
 	$( document ).ready( function() {
 
@@ -287,6 +288,15 @@
 			columnWidth: '.widget'
 		});
 
+		$(window).scroll(function () {
+		    if ($(this).scrollTop() > 500) {
+		        $returnTop.removeClass('off').addClass('on');
+		    }
+		    else {
+		        $returnTop.removeClass('on').addClass('off');
+		    }
+		});
+
 	});
 
 	$( window ).load(function(){
@@ -295,11 +305,21 @@
         $masonryEntry.masonry( 'layout' );
         $masonryWidget.masonry( 'reloadItems' );
         $masonryWidget.masonry( 'layout' );
+        do__equalHeight( '.products', '.product' );
+	});
+
+	$( document ).ajaxComplete(function(){
+        $masonryWidget.masonry( 'reloadItems' );
+        $masonryWidget.masonry( 'layout' );
+		do__equalHeight( '.products', '.product' );
+	});
+
+    $( window ).resize(function() {
+		do__equalHeight( '.products', '.product' );
 	});
 
 	$( document.body ).on( 'post-load', function () {
 		runFitVids();
-		slick__entry_gallery();
 	});
 
 	$( document.body ).on( 'afterChange', function () {

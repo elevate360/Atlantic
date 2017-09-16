@@ -63,7 +63,7 @@ function atlantic_span_count_archive_widget( $output ) {
  * @return [type]          [description]
  */
 function atlantic_add_span_count_on_archive_widget( $matches ) {
-	return sprintf( '%s<span class="count">%s</span>%s',
+	return sprintf( '%s<span class="post-count">%s</span>%s',
 		$matches[1],
 		$matches[2],
 		$matches[3]
@@ -90,7 +90,7 @@ function atlantic_span_count_category_widget( $output, $args ) {
  * @return [type]          [description]
  */
 function atlantic_add_span_count_on_category_widget( $matches ) {
-	return sprintf( '%s<span class="count">%s</span>',
+	return sprintf( '%s<span class="post-count">%s</span>',
 		$matches[1],
 		$matches[2]
 	);

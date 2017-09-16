@@ -12,7 +12,8 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
-
+		$setting = atlantic_setting_default();
+		$max_gallery = get_theme_mod( 'max_gallery', $setting['max_gallery'] ) - 1;
 		$gallery = get_post_gallery( get_the_ID(), false );
 		if ( isset( $gallery['ids'] ) ) {
 			$ids = explode( ",", $gallery['ids'] );
@@ -26,9 +27,9 @@
 						$image_src  = wp_get_attachment_image_src( $id, 'full' );
 						$image_link = get_permalink( $id );
 
-						echo sprintf( '<a href="%s" data-source="%s" title="%s">%s</a>', $image_src[0], $image_link, get_the_title( $id ), $image );
+						echo $image;
 
-						if ( $counter >= 4 ) {
+						if ( $counter >= $max_gallery ) {
 							break;
 						}
 

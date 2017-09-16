@@ -54,6 +54,9 @@ function atlantic_setup() {
 
 	set_post_thumbnail_size( 1140, 1140, false );
 
+	// Set the default content width.
+	$GLOBALS['content_width'] = 540;
+
 	/*
 	 * Enable support for Post Formats.
 	 *
@@ -127,9 +130,19 @@ add_action( 'after_setup_theme', 'atlantic_setup' );
  * @global int $content_width
  */
 function atlantic_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'atlantic_content_width', 720 );
+	$content_width = $GLOBALS['content_width'];
+
+	// Check if is single post and there is no sidebar.
+	if ( is_singular() ) {
+		$content_width = 1110;
+	}
+
+	/**
+	 * Filter Atlantic content width of the theme.
+	 */
+	$GLOBALS['content_width'] = apply_filters( 'atlantic_content_width', $content_width );
 }
-add_action( 'after_setup_theme', 'atlantic_content_width', 0 );
+add_action( 'template_redirect', 'atlantic_content_width', 0 );
 
 /**
  * Register widget area.
@@ -146,15 +159,17 @@ function atlantic_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar Footer', 'atlantic' ),
-		'id'            => 'sidebar-2',
-		'description'   => esc_html__( 'Add widgets here.', 'atlantic' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	if( class_exists( 'WooCommerce' ) ){
+		register_sidebar( array(
+			'name'          => esc_html__( 'Sidebar Shop', 'atlantic' ),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__( 'Add widgets here.', 'atlantic' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		) );
+	}
 }
 add_action( 'widgets_init', 'atlantic_widgets_init' );
 
@@ -220,6 +235,10 @@ function atlantic_scripts() {
 
 	wp_enqueue_style( 'atlantic-style', get_stylesheet_uri() );
 
+	if ( class_exists( 'WooCommerce' ) ) {
+		wp_enqueue_style( 'atlantic-woocommerce-style', get_theme_file_uri( '/assets/css/woocommerce.min.css' ) );
+	}
+
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/vendor/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
@@ -233,16 +252,13 @@ function atlantic_scripts() {
 	wp_script_add_data( 'selectivizr', 'conditional', 'lt IE 9' );
 
 	wp_enqueue_script( 'jquery-fitvids', get_template_directory_uri() . '/assets/js/fitvids/jquery.fitvids.min.js', array( 'jquery' ), '1.2.0', true );
-	wp_enqueue_script( 'jquery-stickit', get_template_directory_uri() . '/assets/js/stickit/jquery.stickit.min.js', array( 'jquery' ), '0.2.13', true );
-	wp_enqueue_script( 'jquery-magnific-popup', get_template_directory_uri() . '/assets/js/magnific-popup/jquery.magnific-popup.min.js', array( 'jquery' ), '1.1.0', true );
 	wp_enqueue_script( 'jquery-slick', get_template_directory_uri() . '/assets/js/slick/slick.min.js', array( 'jquery' ), '1.7.1', true );
 	wp_enqueue_script( 'atlantic-script', get_template_directory_uri() . '/assets/js/atlantic.min.js', array( 'jquery', 'jquery-masonry' ), '20151215', true );
 
 	$output = array(
 		'expandMenu' 	=> atlantic_get_svg( array( 'icon' => 'expand' ) ),
 		'collapseMenu' 	=> atlantic_get_svg( array( 'icon' => 'collapse' ) ),
-		'subNav' 		=> '<span class="screen-reader-text">' . __( 'Sub Navigation', 'atlantic' ) . '</span>',
-		'imageSrc'		=> __( 'Image Source &rarr;', 'atlantic' )
+		'subNav' 		=> '<span class="screen-reader-text">' . __( 'Sub Navigation', 'atlantic' ) . '</span>'
 	);
 	wp_localize_script( 'atlantic-script', 'Atlanticl10n', $output );
 
@@ -305,3 +321,8 @@ require get_template_directory() . '/inc/customizer/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+require get_template_directory() . '/inc/woocommerce.php';

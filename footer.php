@@ -39,7 +39,9 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<?php
+atlantic_return_to_top();
+wp_footer(); ?>
 
 </body>
 </html>

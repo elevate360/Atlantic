@@ -10,7 +10,7 @@
 
 .widget {
 	margin: 0 0 1.5em;
-	//word-wrap: break-word;
+	word-wrap: break-word;
 	/* Make sure select elements fit in widgets. */
 	select {
 		width: 100%;
@@ -28,7 +28,7 @@
 	}
 	th,
 	td {
-		padding: .5rem;
+		padding: .25rem;
 		text-align: center;
 	}
 	th {
@@ -39,9 +39,11 @@
 	}
 }
 
-.search-form {
+.search-form,
+.woocommerce-product-search {
 	position: relative;
 	input[type="search"] {
+		border-right-width: 0;
 		float: left;
 		width: 70%;
 	}
@@ -52,7 +54,6 @@
 		width: 30%;
 		padding-left: 0;
 		padding-right: 0;
-		border-left-width: 0;
 	}
 }
 
@@ -63,7 +64,7 @@
 
 .widget_tag_cloud a,
 .widget_product_tag_cloud a {
-    background-color: #fff;
+    background-color: transparent;
     border: 1px solid $color__text-secondary;
     color: $color__text-secondary;
     display: inline-block;
@@ -110,7 +111,7 @@
 	}
 }
 
-span.count {
+span.post-count {
 	float: right;
 }
 
@@ -148,7 +149,6 @@ span.count {
 		&:last-child {
 			border-bottom-width: 0;
 			padding-bottom: 0;
-			margin-bottom: 0;
 		}
 	}
 	.tweet-text {

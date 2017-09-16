@@ -45,7 +45,12 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
+		<?php
+		the_comments_navigation( array(
+            'prev_text'          => __( '&larr; Older comments', 'atlantic' ),
+            'next_text'          => __( 'Newer comments &rarr;', 'atlantic' ),
+		));
+		?>
 
 		<ol class="comment-list">
 			<?php
@@ -57,7 +62,11 @@ if ( post_password_required() ) {
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php the_comments_navigation();
+		<?php
+		the_comments_navigation( array(
+            'prev_text'          => __( '&larr; Older comments', 'atlantic' ),
+            'next_text'          => __( 'Newer comments &rarr;', 'atlantic' ),
+		));
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) : ?>
