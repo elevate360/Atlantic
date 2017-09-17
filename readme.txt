@@ -74,10 +74,6 @@ Slick by [Ken Wheeler](https://github.com/kenwheeler)
 **License:** MIT
 Source: http://kenwheeler.github.io/slick/
 
-TGM Plugin Activation by [Thomas Griffin](https://thomasgriffin.io/)
-**License:** GPL-2.0+
-Source: http://tgmpluginactivation.com/
-
 Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/genericons-neue
