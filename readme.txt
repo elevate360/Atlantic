@@ -74,6 +74,10 @@ Slick by [Ken Wheeler](https://github.com/kenwheeler)
 **License:** MIT
 Source: http://kenwheeler.github.io/slick/
 
+Hybrid Media Grabber by [Justin Tadlock](https://github.com/justintadlock)
+**License:** GPL-2.0+
+Source: https://github.com/justintadlock/hybrid-core/blob/master/inc/class-media-grabber.php
+
 Genericons Neue by [Automattic](https://github.com/Automattic/genericons-neue)
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/genericons-neue
