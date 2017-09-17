@@ -145,13 +145,10 @@
 ( function( $ ) {
 
 	// Variables and DOM Caching.
-	var $body 		= $( 'body' ),
-	$page 			= $( '#page' ),
-	$mainNav 		= $( '.main-navigation' ),
+	var $page 		= $( '#page' ),
 	$smoothScroll 	= $( 'a[href*="#content"], a[href*="#site-navigation"], a[href*="#secondary"], a[href*="#page"]' ),
 	$table 			= $( 'table' ),
 	$subMenu 		= $( '.main-navigation .sub-menu' ),
-	$subMenuToggle 	= $( '.sub-menu-toggle' ),
 	$masonryEntry 	= $( '.site-content .masonry-container' ),
 	$masonryWidget 	= $( '.widget-area .masonry-container' ),
 	$entryGallery 	= $( '.entry-gallery' ),
