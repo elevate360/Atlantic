@@ -2,16 +2,16 @@
 # This file is distributed under the GNU General Public License v2 or later.=!>
 msgid ""
 msgstr ""
-"Project-Id-Version: Atlantic 1.2.0\n"
-"Report-Msgid-Bugs-To: https://github.com/elevate360/caspian/issues\n"
-"POT-Creation-Date: 2017-09-17 09:33:00+00:00\n"
+"Project-Id-Version: Atlantic 1.2.1\n"
+"Report-Msgid-Bugs-To: https://elevate360/contact\n"
+"POT-Creation-Date: 2017-12-18 20:25:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
-"X-Generator: grunt-wp-i18n1.0.0\n"
+"X-Generator: grunt-wp-i18n1.0.1\n"
 
 #: 404.php:17
 msgid "Oops! That page can&rsquo;t be found."

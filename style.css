@@ -1,11 +1,10 @@
-@charset "UTF-8";
 /*!
 Theme Name: Atlantic
 Theme URI: http://atlantic.elevate360.com.au/
 Author: Elevate360
 Author URI: https://elevate360.com.au
 Description: Atlantic is for the creatives out there looking to give their creations the platform they deserve. Photographers, bloggers, videographers and artists alike will find Atlantic can not only mimic the style of their content but contribute to the design aesthetic you have in mind. Atlantic is a free high res photography blog theme for WordPress which understands the importance of presentation, offering a pixel perfect platform for your content. Atlantic serves as a digital frame for your photos. This theme compliments images that are large in scope, detailed in their display and ambitious in their composition. Each image is given its opportunity to shine unambiguously with Atlantic. This customizable theme can be changed to suit the individual style of each collection. Atlantic gives control to the user with domain over image and video sizes; selectable colours and fonts; as well as further customization opportunities with CSS.
-Version: 1.2.0
+Version: 1.2.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: atlantic
@@ -121,12 +120,12 @@ dfn {
 }
 
 h1 {
-	margin: 0.67em 0; 
+	margin: 0.67em 0;
 	font-size: 2em;
 }
 
 mark {
-	color: #000; 
+	color: #000;
 	background: #ff0;
 }
 
@@ -185,7 +184,7 @@ input,
 optgroup,
 select,
 textarea {
-	margin: 0; 
+	margin: 0;
 	color: inherit;
 	font: inherit;
 }
@@ -203,7 +202,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	cursor: pointer; 
+	cursor: pointer;
 
 	-webkit-appearance: button;
 }
@@ -215,7 +214,7 @@ html input[disabled] {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -242,12 +241,12 @@ input[type="search"]::-webkit-search-decoration {
 
 fieldset {
 	margin: 0 2px;
-	padding: 0.35em 0.625em 0.75em; 
+	padding: 0.35em 0.625em 0.75em;
 	border: 1px solid #c0c0c0;
 }
 
 legend {
-	padding: 0; 
+	padding: 0;
 	border: 0;
 }
 
@@ -260,7 +259,7 @@ optgroup {
 }
 
 table {
-	border-spacing: 0; 
+	border-spacing: 0;
 	border-collapse: collapse;
 }
 
@@ -321,7 +320,7 @@ pre {
 	overflow: auto;
 	max-width: 100%;
 	margin-bottom: 1.6rem;
-	padding: 1.6rem; 
+	padding: 1.6rem;
 	background: #eceff1;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
@@ -373,14 +372,14 @@ html {
 }
 
 body {
-	background: #fff;
-	/* Fallback for when there is no custom background color defined. */
+	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 
 blockquote,
 q {
 	quotes: "" "";
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -390,7 +389,7 @@ q:after {
 
 hr {
 	height: 1px;
-	margin-bottom: 1.5em; 
+	margin-bottom: 1.5em;
 	border: 0;
 	background-color: rgba(78, 52, 46, 0.05);
 }
@@ -424,15 +423,12 @@ dd {
 }
 
 img {
-	/* Make sure images are scaled correctly. */
-	max-width: 100%;
-	height: auto;
-	/* Adhere to container width. */
+	max-width: 100%; /* Adhere to container width. */
+	height: auto; /* Make sure images are scaled correctly. */
 }
 
 figure {
-	margin: 1em 0;
-	/* Extra wide images within figure tags don't overflow the content area. */
+	margin: 1em 0; /* Extra wide images within figure tags don't overflow the content area. */
 }
 
 ::-webkit-input-placeholder {
@@ -992,6 +988,7 @@ a:active {
 --------------------------------------------------------------*/
 
 /* Text meant only for screen readers. */
+
 .screen-reader-text {
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -1025,6 +1022,7 @@ a:active {
 }
 
 /* Do not show the outline on the skip link target. */
+
 #page[tabindex="-1"]:focus,
 #site-navigation[tabindex="-1"]:focus,
 #content[tabindex="-1"]:focus,
@@ -1390,6 +1388,7 @@ span.post-count {
 }
 
 /** Site Branding */
+
 .site-branding {
 	position: relative;
 	padding-top: 1rem;
@@ -1452,6 +1451,7 @@ a.custom-logo-link {
 }
 
 /** Site Footer */
+
 .widget-area > .container,
 .site-footer > .container {
 	position: relative;
@@ -1484,6 +1484,7 @@ a.custom-logo-link {
 }
 
 /** Return to top */
+
 .return-to-top {
 	position: fixed;
 	z-index: 5;
@@ -2152,6 +2153,7 @@ h2.about-author:after {
 --------------------------------------------------------------*/
 
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
+
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
 	/* Theme Footer (when set to scrolling) */
@@ -2159,6 +2161,7 @@ h2.about-author:after {
 }
 
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+
 .infinity-end.neverending .site-footer {
 	display: block;
 }
@@ -2288,6 +2291,7 @@ span.wpcf7-list-item {
 --------------------------------------------------------------*/
 
 /* Slider */
+
 .slick-slider {
 	display: block;
 	position: relative;
@@ -2393,11 +2397,13 @@ span.wpcf7-list-item {
 }
 
 /* Slider */
+
 .slick-loading .slick-list {
 	background: #fff url("assets/js/slick/ajax-loader.gif") center center no-repeat;
 }
 
 /* Icons */
+
 @font-face {
 	font-family: "slick";
 	src: url("./fonts/slick.eot");
@@ -2407,6 +2413,7 @@ span.wpcf7-list-item {
 }
 
 /* Arrows */
+
 .slick-prev,
 .slick-next {
 	display: block;
@@ -2494,6 +2501,7 @@ span.wpcf7-list-item {
 }
 
 /* Dots */
+
 .slick-dotted.slick-slider {
 	margin-bottom: 30px;
 }
@@ -2565,6 +2573,7 @@ span.wpcf7-list-item {
 }
 
 /* Make sure embeds and iframes fit their containers. */
+
 embed,
 iframe,
 object {
@@ -2572,6 +2581,7 @@ object {
 }
 
 /* Make sure logo link wraps around logo image. */
+
 .custom-logo-link {
 	display: inline-block;
 }
@@ -2844,6 +2854,7 @@ object {
 	}
 
 /* Small menu */
+
 	.menu-toggle,
 	.sub-menu-toggle {
 		display: none;

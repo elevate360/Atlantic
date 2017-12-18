@@ -65,17 +65,17 @@ figure {
 }
 
 ::-moz-selection {
-	color: #fff; 
+	color: #fff;
 	background: #00bcd4;
 }
 
 ::selection {
-	color: #fff; 
+	color: #fff;
 	background: #00bcd4;
 }
 
 ::-moz-selection {
-	color: #fff; 
+	color: #fff;
 	background: #00bcd4;
 }
 
@@ -108,12 +108,12 @@ dd {
 }
 
 table {
-	width: 100%; 
+	width: 100%;
 	margin: 0 0 1.5em;
 }
 
 caption {
-	margin-bottom: 1rem; 
+	margin-bottom: 1rem;
 	font-weight: bold;
 }
 
@@ -143,6 +143,7 @@ thead {
 	min-height: 0;
 	margin-bottom: 1.5em;
 }
+
 .table-responsive table:first-child {
 	margin: 0;
 }
@@ -181,7 +182,7 @@ pre {
 	overflow: auto;
 	max-width: 100%;
 	margin-bottom: 1.6rem;
-	padding: 1.6rem; 
+	padding: 1.6rem;
 	background: #eceff1;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
@@ -218,14 +219,17 @@ a {
 	color: #00bcd4;
 	text-decoration: none;
 }
+
 a:hover,
 a:focus,
 a:active {
 	color: #0097a7;
 }
+
 a:focus {
 	outline: thin dashed;
 }
+
 a:hover,
 a:active {
 	outline: 0;
@@ -236,11 +240,12 @@ a:active {
 .comment-content .wp-smiley {
 	margin-top: 0;
 	margin-bottom: 0;
-	padding: 0; 
+	padding: 0;
 	border: none;
 }
 
 /* Make sure embeds and iframes fit their containers. */
+
 embed,
 iframe,
 object {
@@ -248,12 +253,13 @@ object {
 }
 
 /* Make sure logo link wraps around logo image. */
+
 .custom-logo-link {
 	display: inline-block;
 }
 
 .twitter-tweet {
-	margin-right: auto; 
+	margin-right: auto;
 	margin-left: auto;
 }
 
@@ -263,29 +269,33 @@ object {
 --------------------------------------------------------------*/
 
 .wp-caption {
-	overflow: hidden; 
+	overflow: hidden;
 	max-width: 100%;
 	margin-bottom: 1.5rem;
 	background-color: transparent;
 }
+
 .wp-caption img[class*="wp-image-"] {
 	display: block;
-	margin-right: auto; 
+	margin-right: auto;
 	margin-left: auto;
 }
+
 .wp-caption > a {
 	display: block;
 }
+
 .wp-caption > a img {
 	vertical-align: middle;
 }
+
 .wp-caption > a:hover img,
 .wp-caption > a:focus img {
 	opacity: 0.5;
 }
 
 .wp-caption-text {
-	margin-bottom: 0; 
+	margin-bottom: 0;
 	padding: 1rem 0 0.5rem;
 	font-size: 14px;
 	font-size: 0.875rem;
@@ -298,19 +308,21 @@ object {
 
 .gallery {
 	display: inline-block;
-	overflow: hidden; 
+	overflow: hidden;
 	margin-bottom: 1.5rem;
 }
 
 .gallery-item {
 	float: left;
 	overflow: hidden;
-	position: relative; 
+	position: relative;
 	margin: 0 1px 2px 1px;
 }
+
 .gallery-item img {
 	vertical-align: middle;
 }
+
 .gallery-item a {
 	display: block;
 }
@@ -395,7 +407,7 @@ object {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 	min-height: 49px;
 	content: "";
@@ -422,15 +434,14 @@ object {
 
 .icon {
 	display: inline-block;
-	position: relative;
-	/* Align more nicely with capital letters */
+	position: relative; /* Align more nicely with capital letters */
 	top: -0.0625rem;
 	width: 1rem;
 	height: 1rem;
 	vertical-align: middle;
 
 	fill: currentColor;
-	stroke: currentColor; 
+	stroke: currentColor;
 	stroke-width: 0;
 }
 

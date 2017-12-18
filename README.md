@@ -3,8 +3,8 @@
 **Contributors:** elevate360
 **Requires at least:** WordPress 4.7
 **Tested up to:** WordPress 4.8
-**Stable tag:** 1.2.0
-**Version:** 1.2.0
+**Stable tag:** 1.2.1
+**Version:** 1.2.1
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 **Tags:** one-column, two-columns, custom-background, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-width-template, footer-widgets, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-Commerce, photography
@@ -87,6 +87,12 @@ https://www.pexels.com/photo/beautiful-blur-bouquet-carefree-573302/
 https://www.pexels.com/photo/art-astronomy-atmosphere-aurora-borealis-360912/
 
 ## Changelog
+
+### 1.2.1 - December 19, 2017
+* Fixed texdomain
+* Updated `style.css`
+* Updated `readme.md` and `readme.txt`
+* Updated `package.json` and `gruntfile.js` for development
 
 ### 1.2.0 - September 18, 2017
 * Major update
