@@ -92,9 +92,3 @@ Source: https://github.com/Automattic/genericons-neue
 Social Logos by [Automattic](https://github.com/Automattic/social-logos)
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/social-logos
-
-- Screenshot image, Pixabay
-**License:** CC0 1.0 Universal (CC0 1.0)
-Source:
-https://www.pexels.com/photo/beautiful-blur-bouquet-carefree-573302/
-https://www.pexels.com/photo/art-astronomy-atmosphere-aurora-borealis-360912/

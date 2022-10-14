@@ -223,7 +223,7 @@ if( ! function_exists( 'atlantic_do_footer_copyright' ) ) :
 function atlantic_do_footer_copyright(){
 
 	echo '<div class="site-info">'. atlantic_get_footer_copyright() . '</div>';
-	echo '<div class="site-designer">'. sprintf( __( 'Theme design by %s.', 'atlantic' ), '<a href="'. esc_url( 'https://elevate360.com.au/' ) .'">Elevate</a>' ) .'</div>';
+	echo '<div class="site-designer">'. sprintf( __( 'Theme design by %s.', 'atlantic' ), '<a href="'. esc_url( 'https://cockatoo.com.au/' ) .'">Cockatoo</a>' ) .'</div>';
 
 }
 endif;
