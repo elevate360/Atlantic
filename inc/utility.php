@@ -21,9 +21,11 @@ if ( ! function_exists( 'atlantic_is_woocommerce' ) ) :
  * @return [type] [description]
  */
 function atlantic_is_woocommerce(){
-	if ( function_exists( 'is_woocommerce' ) ) {
-		is_woocommerce();
-	}
+       if ( function_exists( 'is_woocommerce' ) ) {
+               return is_woocommerce();
+       }
+
+       return false;
 }
 endif;
 
