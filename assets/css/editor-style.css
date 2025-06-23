@@ -3,11 +3,11 @@ button,
 input,
 select,
 textarea {
-	color: #404040;
-	font-family: "Source Code Pro", monospace;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 1.5;
+        color: #404040;
+        font-family: var(--wp--preset--font-family--source-code-pro, "Source Code Pro", monospace);
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 1.5;
 }
 
 body.mce-content-body {

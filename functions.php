@@ -321,25 +321,37 @@ add_action( 'widgets_init', 'atlantic_widgets_init' );
 function atlantic_fonts_url() {
 	$fonts_url = '';
 
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by Source Code Pro, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$montserrat = _x( 'on', 'Source Code Pro font: on or off', 'atlantic' );
+        /*
+         * Translators: If there are characters in your language that are not
+         * supported by these fonts, translate this to 'off'. Do not translate
+         * into your own language.
+         */
+        $source_code_pro = _x( 'on', 'Source Code Pro font: on or off', 'atlantic' );
+        $open_sans       = _x( 'on', 'Open Sans font: on or off', 'atlantic' );
+        $lora            = _x( 'on', 'Lora font: on or off', 'atlantic' );
 
-	if ( 'off' !== $montserrat ) {
-		$font_families = array();
+        if ( 'off' !== $source_code_pro || 'off' !== $open_sans || 'off' !== $lora ) {
+                $font_families = array();
 
-		$font_families[] = 'Source Code Pro:400,700,900';
+                if ( 'off' !== $source_code_pro ) {
+                        $font_families[] = 'Source Code Pro:400,700,900';
+                }
 
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
+                if ( 'off' !== $open_sans ) {
+                        $font_families[] = 'Open Sans:400,700';
+                }
 
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	}
+                if ( 'off' !== $lora ) {
+                        $font_families[] = 'Lora:400,700';
+                }
+
+                $query_args = array(
+                        'family' => urlencode( implode( '|', $font_families ) ),
+                        'subset' => urlencode( 'latin,latin-ext' ),
+                );
+
+                $fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+        }
 
 	return esc_url_raw( $fonts_url );
 }

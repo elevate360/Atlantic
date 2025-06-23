@@ -69,6 +69,23 @@
       ]
     },
     "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Source Code Pro\", monospace",
+          "slug": "source-code-pro",
+          "name": "Source Code Pro"
+        },
+        {
+          "fontFamily": "\"Open Sans\", sans-serif",
+          "slug": "open-sans",
+          "name": "Open Sans"
+        },
+        {
+          "fontFamily": "\"Lora\", serif",
+          "slug": "lora",
+          "name": "Lora"
+        }
+      ],
       "fontSizes": [
         {
           "name": "Small",
@@ -149,6 +166,11 @@
           "ratio": "9/16"
         }
       ]
+    }
+  },
+  "styles": {
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--source-code-pro)"
     }
   },
   "templateParts": [
