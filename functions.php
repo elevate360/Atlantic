@@ -106,11 +106,13 @@ function atlantic_setup() {
 		'flex-height' => true,
 	) );
 
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 */
-	add_editor_style( array( atlantic_fonts_url(), 'assets/css/editor-style.min.css' ) );
+       /*
+        * Load styles for the editor so that the content
+        * within the block and classic editors matches the
+        * theme's frontend appearance.
+        */
+       add_theme_support( 'editor-styles' );
+       add_editor_style( array( atlantic_fonts_url(), 'assets/css/editor-style.min.css' ) );
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
