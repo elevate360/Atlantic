@@ -17,9 +17,9 @@ get_header(); ?>
 
 					get_template_part( 'template-parts/content', 'image' );
 
-					if ( get_theme_mod( 'author_display', true ) == true ) {
-						get_template_part( 'template-parts/biography' );
-					}
+                                       if ( get_theme_mod( 'author_display', true ) == true ) {
+                                               block_template_part( 'biography' );
+                                       }
 				?>
 					<nav class="navigation post-navigation" role="navigation">
 						<div class="nav-links">
