@@ -80,6 +80,15 @@ Source: https://github.com/Automattic/genericons-neue
 **License:** GPL-2.0+
 Source: https://github.com/Automattic/social-logos
 
+## Running Tests
+
+This project includes a small PHPUnit test suite. After installing PHPUnit,
+run the tests from the theme root:
+
+```bash
+phpunit --configuration tests/phpunit.xml
+```
+
 ## Changelog
 
 ### 1.2.1 - December 19, 2017
