@@ -13,6 +13,9 @@
     "url": "http://www.gnu.org/licenses/gpl-2.0.html"
   },
   "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt jshint"
+  },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
     "grunt": "^1.0.1",

@@ -29,6 +29,10 @@ This customizable theme can be changed to suit the individual style of each coll
 - How to change Atlantic theme fonts?
 You can easily install and use Easy Google Fonts plugin.
 
+## Development
+
+Run `npm test` to lint the JavaScript files using `grunt jshint`.
+
 ## Copyright
 
 Atlantic WordPress Theme, Copyright 2016 WordPress.org
