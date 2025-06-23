@@ -207,15 +207,33 @@ function atlantic_setup() {
 	add_theme_support( 'block-template-parts' );
 
 	// register_block_style 
-	register_block_style(
-		'core/quote',
-		array(
-			'name'         => 'blue-quote',
-			'label'        => __( 'Blue Quote', 'atlantic' ),
-			'is_default'   => true,
-			'inline_style' => '.wp-block-quote.is-style-blue-quote { color: blue; }',
-		)
-	);
+        register_block_style(
+                'core/quote',
+                array(
+                        'name'         => 'blue-quote',
+                        'label'        => __( 'Blue Quote', 'atlantic' ),
+                        'is_default'   => true,
+                        'inline_style' => '.wp-block-quote.is-style-blue-quote { color: blue; }',
+                )
+        );
+
+        register_block_style(
+                'core/button',
+                array(
+                        'name'         => 'outline-button',
+                        'label'        => __( 'Outline Button', 'atlantic' ),
+                        'inline_style' => '.wp-block-button.is-style-outline-button .wp-block-button__link{background:transparent;border:2px solid currentColor;}',
+                )
+        );
+
+        register_block_style(
+                'core/image',
+                array(
+                        'name'         => 'rounded',
+                        'label'        => __( 'Rounded', 'atlantic' ),
+                        'inline_style' => '.wp-block-image.is-style-rounded img{border-radius:10px;}',
+                )
+        );
 
 	// register_block_pattern
 	register_block_pattern(

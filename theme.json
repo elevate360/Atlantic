@@ -23,6 +23,11 @@
           "name": "very dark gray",
           "slug": "very-dark-gray",
           "color": "#444"
+        },
+        {
+          "name": "Atlantic Blue",
+          "slug": "atlantic-blue",
+          "color": "#0033cc"
         }
       ],
       "gradients": [
@@ -113,6 +118,11 @@
           "fontFamily": "\"Lora\", serif",
           "slug": "lora",
           "name": "Lora"
+        },
+        {
+          "fontFamily": "\"Roboto\", sans-serif",
+          "slug": "roboto",
+          "name": "Roboto"
         }
       ],
       "fontSizes": [
@@ -165,6 +175,8 @@
         {"slug": "40", "size": "1.5rem", "name": "L"},
         {"slug": "50", "size": "2rem", "name": "XL"},
         {"slug": "60", "size": "3rem", "name": "XXL"}
+        ,
+        {"slug": "70", "size": "4rem", "name": "XXXL"}
       ],
       "units": [
         "px",
@@ -209,11 +221,17 @@
       "area": "header",
       "path": "block-template-parts/header.html"
     },
-    {
-      "name": "Footer",
-      "slug": "footer",
-      "area": "footer",
-      "path": "block-template-parts/footer.html"
-    }
-  ]
-}
+      {
+        "name": "Footer",
+        "slug": "footer",
+        "area": "footer",
+        "path": "block-template-parts/footer.html"
+      },
+      {
+        "name": "Hero Section",
+        "slug": "hero-section",
+        "area": "uncategorized",
+        "path": "block-template-parts/hero.html"
+      }
+    ]
+  }
