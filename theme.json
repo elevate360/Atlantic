@@ -115,6 +115,27 @@
         "vh",
         "vw"
       ]
+    },
+    "dimensions": {
+      "aspectRatio": true,
+      "defaultAspectRatios": true,
+      "aspectRatios": [
+        {
+          "name": "Square",
+          "slug": "1-1",
+          "ratio": "1/1"
+        },
+        {
+          "name": "Landscape",
+          "slug": "16-9",
+          "ratio": "16/9"
+        },
+        {
+          "name": "Portrait",
+          "slug": "9-16",
+          "ratio": "9/16"
+        }
+      ]
     }
   },
   "templateParts": [
