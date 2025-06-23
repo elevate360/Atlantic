@@ -1,10 +1,10 @@
 === Atlantic ===
 
 Contributors: elevate360
-Requires at least: 4.7
-Tested up to: 4.8
-Stable tag: 1.2.1
-Version: 1.2.1
+Requires at least: 6.0
+Tested up to: 6.8
+Stable tag: 2.1.0
+Version: 2.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Tags: one-column, flexible-header, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, sticky-post, theme-options, threaded-comments, translation-ready, blog
@@ -28,6 +28,10 @@ The Atlantic Theme is built for small businesses looking to stand out. Atlantic 
 You can easily install and use Easy Google Fonts plugin.
 
 == Changelog ==
+
+= 2.1.0 - June 23, 2025 =
+* Added theme.json with block settings
+* Updated documentation and version numbers
 
 = 1.2.1 - December 19, 2017
 * Fixed texdomain
