@@ -26,8 +26,32 @@
       ]
     },
     "layout": {
-      "contentSize": "540px",
-      "wideSize": "1110px"
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "%",
+        "vh",
+        "vw"
+      ]
     }
-  }
+  },
+  "templateParts": [
+    {
+      "name": "Header",
+      "slug": "header",
+      "area": "header",
+      "path": "block-template-parts/header.html"
+    },
+    {
+      "name": "Footer",
+      "slug": "footer",
+      "area": "footer",
+      "path": "block-template-parts/footer.html"
+    }
+  ]
 }

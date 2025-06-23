@@ -54,8 +54,8 @@ function atlantic_setup() {
 
 	set_post_thumbnail_size( 1140, 1140, false );
 
-	// Set the default content width.
-	$GLOBALS['content_width'] = 540;
+       // Set the default content width.
+       $GLOBALS['content_width'] = 800;
 
 	/*
 	 * Enable support for Post Formats.
@@ -246,9 +246,9 @@ function atlantic_content_width() {
 	$content_width = $GLOBALS['content_width'];
 
 	// Check if is single post and there is no sidebar.
-	if ( is_singular() ) {
-		$content_width = 1110;
-	}
+       if ( is_singular() ) {
+               $content_width = 1200;
+       }
 
 	/**
 	 * Filter Atlantic content width of the theme.
