@@ -107,6 +107,17 @@
       "wideSize": "1110px"
     },
     "spacing": {
+      "spacingScale": {
+        "steps": 0
+      },
+      "spacingSizes": [
+        {"slug": "10", "size": "0.25rem", "name": "XS"},
+        {"slug": "20", "size": "0.5rem", "name": "S"},
+        {"slug": "30", "size": "1rem", "name": "M"},
+        {"slug": "40", "size": "1.5rem", "name": "L"},
+        {"slug": "50", "size": "2rem", "name": "XL"},
+        {"slug": "60", "size": "3rem", "name": "XXL"}
+      ],
       "units": [
         "px",
         "em",
