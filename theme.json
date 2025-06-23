@@ -115,6 +115,11 @@
         "vh",
         "vw"
       ]
+    },
+    "border": {
+      "width": true,
+      "radius": true,
+      "style": true
     }
   },
   "templateParts": [
