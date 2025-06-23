@@ -27,7 +27,7 @@ This customizable theme can be changed to suit the individual style of each coll
 ## Frequently Asked Questions
 
 - How to change Atlantic theme fonts?
-You can easily install and use Easy Google Fonts plugin.
+Atlantic now includes Source Code Pro, Open Sans and Lora fonts by default. You can switch between them directly in the block editor. If you need additional fonts you can still install and use the Easy Google Fonts plugin.
 
 ## Development
 
