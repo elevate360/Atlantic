@@ -14,7 +14,8 @@
   },
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "grunt jshint"
+    "test": "grunt jshint",
+    "build": "grunt dist"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.5",
