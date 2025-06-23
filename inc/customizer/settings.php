@@ -14,7 +14,7 @@ function atlantic_customize_register( $wp_customize ) {
 
 	$setting = atlantic_setting_default();
 
-	// Arctic Theme Setting Panel
+	// Atlantic Theme Setting Panel
 	$wp_customize->add_panel( 'theme_settings', array(
 		'title' 		=> __( 'Theme Settings', 'atlantic' ),
 		'priority' 		=> 199,
