@@ -109,11 +109,12 @@ function atlantic_default_embed_size(){
 }
 
 /**
- * [olesya_mixcloud_oembed_parameter description]
- * @param  [type] $html [description]
- * @param  [type] $url  [description]
- * @param  [type] $args [description]
- * @return [type]       [description]
+ * Add Mixcloud oEmbed parameters to hide the tracklist and use the light theme.
+ *
+ * @param string $html Original embed HTML markup.
+ * @param string $url  Embed URL.
+ * @param array  $args Optional oEmbed arguments.
+ * @return string Modified embed HTML.
  */
 function atlantic_mixcloud_oembed_parameter( $html, $url, $args ) {
 	return str_replace( 'hide_cover=1', 'hide_cover=1&hide_tracklist=1&light=1', $html );
