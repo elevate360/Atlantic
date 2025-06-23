@@ -29,5 +29,19 @@
       "contentSize": "540px",
       "wideSize": "1110px"
     }
-  }
+  },
+  "templateParts": [
+    {
+      "name": "Header",
+      "slug": "header",
+      "area": "header",
+      "path": "block-template-parts/header.html"
+    },
+    {
+      "name": "Footer",
+      "slug": "footer",
+      "area": "footer",
+      "path": "block-template-parts/footer.html"
+    }
+  ]
 }
