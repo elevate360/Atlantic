@@ -217,18 +217,16 @@ function atlantic_setup() {
 		)
 	);
 
-	// register_block_pattern
-	register_block_pattern(
-		'wpdocs/my-example',
-		array(
-			'title'         => __( 'My First Block Pattern', 'atlantic' ),
-			'description'   => _x( 'This is my first block pattern', 'Block pattern description', 'atlantic' ),
-			'content'       => '<!-- wp:paragraph --><p>A single paragraph block style</p><!-- /wp:paragraph -->',
-			'categories'    => array( 'text' ),
-			'keywords'      => array( 'cta', 'demo', 'example' ),
-			'viewportWidth' => 800,
-		)
-	);
+        // Register theme block patterns.
+        register_block_pattern(
+                'atlantic/hero-banner',
+                require get_template_directory() . '/patterns/hero-banner.php'
+        );
+
+        register_block_pattern(
+                'atlantic/cta-block',
+                require get_template_directory() . '/patterns/cta-block.php'
+        );
 
 	add_theme_support( "responsive-embeds" );
 	add_theme_support( "align-wide" );
