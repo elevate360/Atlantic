@@ -4,30 +4,117 @@
     "appearanceTools": true,
     "color": {
       "palette": [
-        { "name": "strong magenta", "slug": "strong-magenta", "color": "#a156b4" },
-        { "name": "light grayish magenta", "slug": "light-grayish-magenta", "color": "#d0a5db" },
-        { "name": "very light gray", "slug": "very-light-gray", "color": "#eee" },
-        { "name": "very dark gray", "slug": "very-dark-gray", "color": "#444" }
+        {
+          "name": "strong magenta",
+          "slug": "strong-magenta",
+          "color": "#a156b4"
+        },
+        {
+          "name": "light grayish magenta",
+          "slug": "light-grayish-magenta",
+          "color": "#d0a5db"
+        },
+        {
+          "name": "very light gray",
+          "slug": "very-light-gray",
+          "color": "#eee"
+        },
+        {
+          "name": "very dark gray",
+          "slug": "very-dark-gray",
+          "color": "#444"
+        }
       ],
       "gradients": [
-        { "name": "Vivid cyan blue to vivid purple", "slug": "vivid-cyan-blue-to-vivid-purple", "gradient": "linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)" },
-        { "name": "Vivid green cyan to vivid cyan blue", "slug": "vivid-green-cyan-to-vivid-cyan-blue", "gradient": "linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%)" },
-        { "name": "Light green cyan to vivid green cyan", "slug": "light-green-cyan-to-vivid-green-cyan", "gradient": "linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%)" },
-        { "name": "Luminous vivid amber to luminous vivid orange", "slug": "luminous-vivid-amber-to-luminous-vivid-orange", "gradient": "linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%)" },
-        { "name": "Luminous vivid orange to vivid red", "slug": "luminous-vivid-orange-to-vivid-red", "gradient": "linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%)" }
+        {
+          "name": "Vivid cyan blue to vivid purple",
+          "slug": "vivid-cyan-blue-to-vivid-purple",
+          "gradient": "linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%)"
+        },
+        {
+          "name": "Vivid green cyan to vivid cyan blue",
+          "slug": "vivid-green-cyan-to-vivid-cyan-blue",
+          "gradient": "linear-gradient(135deg,rgba(0,208,132,1) 0%,rgba(6,147,227,1) 100%)"
+        },
+        {
+          "name": "Light green cyan to vivid green cyan",
+          "slug": "light-green-cyan-to-vivid-green-cyan",
+          "gradient": "linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%)"
+        },
+        {
+          "name": "Luminous vivid amber to luminous vivid orange",
+          "slug": "luminous-vivid-amber-to-luminous-vivid-orange",
+          "gradient": "linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%)"
+        },
+        {
+          "name": "Luminous vivid orange to vivid red",
+          "slug": "luminous-vivid-orange-to-vivid-red",
+          "gradient": "linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%)"
+        },
+        {
+          "name": "Midnight to transparent",
+          "slug": "midnight-to-transparent",
+          "gradient": "linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%)"
+        }
+      ],
+      "duotone": [
+        {
+          "colors": [
+            "#000000",
+            "#ffffff"
+          ],
+          "slug": "black-white",
+          "name": "Black and White"
+        }
       ]
     },
     "typography": {
       "fontSizes": [
-        { "name": "Small", "slug": "small", "size": "12px" },
-        { "name": "Regular", "slug": "regular", "size": "16px" },
-        { "name": "Large", "slug": "large", "size": "36px" },
-        { "name": "Huge", "slug": "huge", "size": "50px" }
+        {
+          "name": "Small",
+          "slug": "small",
+          "size": "14px"
+        },
+        {
+          "name": "Regular",
+          "slug": "regular",
+          "size": "16px"
+        },
+        {
+          "name": "Medium",
+          "slug": "medium",
+          "size": "20px"
+        },
+        {
+          "name": "Large",
+          "slug": "large",
+          "size": "32px"
+        },
+        {
+          "name": "Huge",
+          "slug": "huge",
+          "size": "50px"
+        },
+        {
+          "name": "Extra Large",
+          "slug": "extra-large",
+          "size": "48px"
+        }
       ]
     },
     "layout": {
       "contentSize": "540px",
       "wideSize": "1110px"
+    },
+    "spacing": {
+      "units": [
+        "px",
+        "em",
+        "rem",
+        "%",
+        "vh",
+        "vw"
+      ]
     }
   }
 }
