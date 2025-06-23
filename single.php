@@ -17,9 +17,9 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			if ( get_theme_mod( 'author_display', true ) == true ) {
-				get_template_part( 'template-parts/biography' );
-			}
+                       if ( get_theme_mod( 'author_display', true ) == true ) {
+                               block_template_part( 'biography' );
+                       }
 
 			the_post_navigation( array(
 			    'prev_text'                  => __( '<span>&larr; previous post</span> %title', 'atlantic' ),

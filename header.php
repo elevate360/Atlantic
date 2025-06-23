@@ -24,7 +24,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-	<?php get_template_part( 'template-parts/skip', 'links' );?>
+       <?php block_template_part( 'skip-links' ); ?>
 
 	<header id="masthead" class="site-header">
 		<div class="container">
