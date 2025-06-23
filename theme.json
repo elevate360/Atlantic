@@ -100,7 +100,9 @@
           "slug": "extra-large",
           "size": "48px"
         }
-      ]
+      ],
+      "customLineHeight": true,
+      "customLetterSpacing": true
     },
     "layout": {
       "contentSize": "540px",
