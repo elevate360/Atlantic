@@ -11,10 +11,12 @@ Tags: one-column, flexible-header, custom-colors, custom-header, custom-menu, cu
 
 
 The Atlantic Theme is built for small businesses looking to stand out. Atlantic combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Atlantic.
+Custom line-height and letter-spacing options are available via theme.json for more granular typography control.
 
 == Description ==
 
 The Atlantic Theme is built for small businesses looking to stand out. Atlantic combines fluid design and user-based functionality to form something that is truly seaworthy. A theme that blasts all difficulty out of the water, it has all the building blocks necessary to establish your online presence. A certain level of customisation is also available to make sure your business feel uniquely yours. Create an engaging, bold and sleek looking website design using Atlantic.
+Custom line-height and letter-spacing options are available via theme.json for more granular typography control.
 
 == Installation ==
 
