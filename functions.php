@@ -236,6 +236,33 @@ endif;
 add_action( 'after_setup_theme', 'atlantic_setup' );
 
 /**
+ * Register custom block patterns located in the patterns folder.
+ */
+function atlantic_register_block_patterns() {
+       $patterns_dir = get_template_directory() . '/patterns';
+
+       if ( ! is_dir( $patterns_dir ) ) {
+               return;
+       }
+
+       foreach ( glob( $patterns_dir . '/*.{php,json}', GLOB_BRACE ) as $file ) {
+               $slug   = 'atlantic/' . basename( $file, '.' . pathinfo( $file, PATHINFO_EXTENSION ) );
+               $pattern = array();
+
+               if ( 'json' === pathinfo( $file, PATHINFO_EXTENSION ) ) {
+                       $pattern = json_decode( file_get_contents( $file ), true );
+               } else {
+                       $pattern = require $file;
+               }
+
+               if ( is_array( $pattern ) ) {
+                       register_block_pattern( $slug, $pattern );
+               }
+       }
+}
+add_action( 'init', 'atlantic_register_block_patterns' );
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
