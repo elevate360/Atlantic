@@ -83,7 +83,7 @@ Source: https://github.com/Automattic/social-logos
 ## Changelog
 
 ### 1.2.1 - December 19, 2017
-* Fixed texdomain
+* Fixed textdomain
 * Updated `style.css`
 * Updated `readme.md` and `readme.txt`
 * Updated `package.json` and `gruntfile.js` for development
